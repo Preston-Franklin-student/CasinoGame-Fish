@@ -5,6 +5,7 @@ class Program
 {
     static int money = 200;
     static bool iWasHere;
+    static bool iWasHere2;
     static List<string> nameList = new List<string> { "Bob", "Jeffery", "Yosgart", "Jacob", "Fish", "Will", "Mr. Luyk", "Clyde", "Evan", "Trevor", "Grank", "Justin", "Coby", "Jack", "John", "Chase", "Caleb", "Preston", "Mr. Martinez", "Alec" };
     static bool loseSwitch = false;
     static void Main(string[] args)
