@@ -262,33 +262,57 @@ class Program
 
     static void Slots()
     {
+        int biggest = 5;
+        if(loseSwitch)
+        biggest += 2;
+        Console.Clear();
         Random random = new Random();
         Console.WriteLine("$25 to play!");
         Console.Write("Do you want to play (yes/no)? ");
         string yesNo = Console.ReadLine();
 
-        if (yesNo.ToLower() == "no")
+        if (yesNo.ToLower() == "no" || money < 25)
         {
             Console.WriteLine("Too much, huh?!?!?");
         }
         else
         {
+            int num1 = random.Next(1, biggest);
+            int num2 = random.Next(1, biggest);
+            int num3 = random.Next(1, biggest);
             money -= 25;
-            int num1 = random.Next(1, 5);
-            int num2 = random.Next(1, 5);
-            int num3 = random.Next(1, 5);
-
             Console.WriteLine($"You have ${money}");
+            int exit = 0;
+            Console.WriteLine("Press f to pull the Lever");
+            while(Console.ReadKey().Key != ConsoleKey.F){
+            }
+            while(exit != 1){
+            exit = random.Next(1,biggest);
+            num1 = random.Next(1, biggest);
+            Console.Clear();
+            Console.WriteLine($"[ {num1}  {num2}  {num3} ]");
+            Thread.Sleep(100);
+            num2 = random.Next(1, biggest);
+            Console.Clear();
+            Console.WriteLine($"[ {num1}  {num2}  {num3} ]");
+            Thread.Sleep(100);
+            num3 = random.Next(1, biggest);
+            Console.Clear();
+            Console.WriteLine($"[ {num1}  {num2}  {num3} ]");
+            Thread.Sleep(100);
+            }
+
+            Console.Clear();
             Console.WriteLine($"[ {num1}  {num2}  {num3} ]");
 
             if (num1 == num2 && num2 == num3)
             {
                 switch (num1)
                 {
-                    case 1: money += 26; break;
-                    case 2: money += 100; break;
-                    case 3: money += 1000; break;
-                    case 4: money += 2000; break;
+                    case 1: money += 26;Console.WriteLine("You Won $26"); break;
+                    case 2: money += 100;Console.WriteLine("You Won $100"); break;
+                    case 3: money += 1000;Console.WriteLine("You Won $1000"); break;
+                    case 4: money += 2000;Console.WriteLine("You Won $2000! JACKPOT!"); break;
                 }
             }
             else
