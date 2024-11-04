@@ -17,7 +17,7 @@ class Program
         while (choice.ToLower() != "quit")
         {
             Console.Clear();
-            Console.WriteLine($"You are in a casino; you can bet on boxing, pick the horses, play blackjack, play slots, play poker, do a coin flip, rob the casino, or quit.\nYou have ${money}.");
+            Console.WriteLine($"Welcome to The Casino!\nYou can bet on boxing, horse racing, blackjack, slots, poker, coin flipping, rob the casino, or quit.\nYou have ${money}.");
             Console.Write("What do you want to play (boxing, horses, jack, slots, poker, coin, rob, quit)? ");
             choiceBefore = choice;
             choice = Console.ReadLine();
