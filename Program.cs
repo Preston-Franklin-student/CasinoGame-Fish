@@ -27,7 +27,9 @@ class Program
             loseSwitch = true;
             else
             loseSwitch = false;
-
+            if(loseSwitch)
+            Console.WriteLine("Lose Switch is Activated!");
+            Thread.Sleep(400);
             switch (choice.ToLower())
             {
                 case "boxing":
@@ -340,7 +342,10 @@ class Program
     static void CoinFlip(){
         Console.Clear();
         Random jimmy = new Random();
-        int amount = (int)(.35 * money);
+        int amount = (int)(.30 * money);
+        int multiply = 2;
+        if(loseSwitch)
+        multiply++;
         string name = nameList[jimmy.Next(nameList.Count)];
         Console.WriteLine($"{name} challenges you to a coin flip!\nThey bet you ${amount}!");
         while(true){
@@ -385,8 +390,8 @@ class Program
                 Thread.Sleep(5000);
                 break;
             } else if (purple.ToLower() == "no"){
-                Console.WriteLine($"{name} doesn't like that! You robs you of ${amount*2}!");
-                money -= amount*2;
+                Console.WriteLine($"{name} doesn't like that! You robs you of ${amount*multiply}!");
+                money -= amount*multiply;
                 Thread.Sleep(5000);
                 break;
             } else{
