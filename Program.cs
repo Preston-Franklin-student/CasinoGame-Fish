@@ -190,14 +190,26 @@ class Program
             char chair = '~';
             string p1Row =  p1.PadLeft(x, chair).PadRight(z, chair);
             string p2Row = p2.PadLeft(y, chair).PadRight(w, chair);
-            Console.WriteLine($"Health: {p1Health}");
+            Console.WriteLine($"    Health: {p1Health}");
             Console.WriteLine("|--------------|");
-            Console.WriteLine("|"+ p1Row +"|");
+            Console.Write("|");
+            for(int i = 0;i < 14 - p1.Length ;i++){
+                Console.Write(" ");
+                if(i==(14-p1.Length-1)/2)
+                Console.Write(p1);
+            }
+            Console.WriteLine("|");
             Console.WriteLine("|              |");
             Console.WriteLine("|              |");
-            Console.WriteLine("|"+ p2Row +"|");
+            Console.Write("|");
+            for(int i = 0;i < 14 - p2.Length ;i++){
+                Console.Write(" ");
+                if(i==(14-p2.Length-1)/2)
+                Console.Write(p2);
+            }
+            Console.WriteLine("|");
             Console.WriteLine("|--------------|");
-            Console.WriteLine($"Health: {p2Health}");
+            Console.WriteLine($"    Health: {p2Health}");
             Console.Write("Press enter to continue.");
             Console.ReadLine();
             Console.Clear();
