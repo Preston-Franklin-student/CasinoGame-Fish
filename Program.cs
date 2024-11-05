@@ -153,7 +153,13 @@ class Program
         while (true)
         {
             Console.Write("Bet how much? ");
+            try{
             bet = int.Parse(Console.ReadLine());
+            }
+            catch(Exception){
+                Console.WriteLine("Not a number!");
+                continue;
+            }
             if (bet > 0 && bet <= money)
             {
                 break;
