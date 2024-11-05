@@ -66,6 +66,9 @@ class Program
         }
         Credits();
         Console.WriteLine($"You ended with ${money}!");
+        Thread.Sleep(7000);
+        string words = "And Ur Mom!";
+        Typing(words);
     }
 
     static void DisplayPlayerStats(string player, int damage, int defense, int health, int speed)
@@ -542,10 +545,7 @@ class Program
         words = "Fish";
         Typing(words);
         Console.WriteLine();
-        Thread.Sleep(sleep*2);
-
-        words = "And Ur Mom!";
-        Typing(words);
+        Thread.Sleep(sleep);
     }
     static void Typing(string words){
         foreach(char letter in words){
