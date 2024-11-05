@@ -411,18 +411,21 @@ class Program
 
     }
     static void Credits(){
+        int sleep = 3500;
         Console.Clear();
         Console.WriteLine("Credits:\n");
         Console.WriteLine("Main Producer:");
         string words = "Fish";
         Typing(words);
         Console.WriteLine();
-        Thread.Sleep(4000);
+        Thread.Sleep(sleep);
+
         Console.WriteLine("Main Developer:");
         words = "Fish";
         Typing(words);
         Console.WriteLine();
-        Thread.Sleep(4000);
+        Thread.Sleep(sleep);
+
         Console.WriteLine("Concept Creators:");
         words = "Jacob Woudwyk";
         Typing(words);
@@ -431,7 +434,8 @@ class Program
         words = "Yosgart Garcia";
         Typing(words);
         Console.WriteLine();
-        Thread.Sleep(4000);
+        Thread.Sleep(sleep);
+
         Console.WriteLine("Play Testers:");
         words = "Mr. Luyk";
         Typing(words);
@@ -440,26 +444,42 @@ class Program
         words = "Justin Boeve";
         Typing(words);
         Console.WriteLine();
-        Thread.Sleep(4000);
+        Thread.Sleep(sleep);
+
         Console.WriteLine("Language conversion:");
         words = "Chat GPT";
         Typing(words);
         Console.WriteLine();
-        Thread.Sleep(4000);
+        Thread.Sleep(sleep);
+
         Console.WriteLine("Teachers:");
         words = "Mr. Luyk";
         Typing(words);
         words = "Mr. Martinez";
         Typing(words);
-        Thread.Sleep(4000);
         Console.WriteLine();
+        Thread.Sleep(sleep);
+
         Console.WriteLine("Troubleshooting:");
         words = "Yosgart Garcia";
         Typing(words);
         words = "Will Newson";
         Typing(words);
         Console.WriteLine();
-        Thread.Sleep(4000);
+        Thread.Sleep(sleep);
+
+        Console.WriteLine("Animation lead:");
+        words = "Clyde Hettinga";
+        Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(sleep);
+        Console.WriteLine("Animation assistants:");
+        words = "Fish";
+        Typing(words);
+        words = "Jacob Woudwyk";
+        Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(sleep);
 
         Console.WriteLine("Home screen:");
         words = "Fish";
@@ -469,7 +489,7 @@ class Program
         words = "Yosgart Garcia";
         Typing(words);
         Console.WriteLine();
-        Thread.Sleep(4000);
+        Thread.Sleep(sleep);
         
         Console.WriteLine("Boxing:");
         words = "Fish";
@@ -477,7 +497,19 @@ class Program
         words = "Jacob Woudwyk";
         Typing(words);
         Console.WriteLine();
-        Thread.Sleep(4000);
+        Thread.Sleep(sleep);
+
+        Console.WriteLine("Horse racing:");
+        words = "Jacob Woudwyk";
+        Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(sleep);
+
+        Console.WriteLine("Blackjack:");
+        words = "Will Newson";
+        Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(sleep);
 
         Console.WriteLine("Slots:");
         words = "Fish";
@@ -485,7 +517,27 @@ class Program
         words = "Jacob Woudwyk";
         Typing(words);
         Console.WriteLine();
-        Thread.Sleep(4000);
+        Thread.Sleep(sleep);
+
+        Console.WriteLine("Poker:");
+        words = "Coby Johnson";
+        Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(sleep);
+
+        Console.WriteLine("Coin flip:");
+        words = "Fish";
+        Typing(words);
+        words = "Jacob Woudwyk";
+        Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(sleep);
+
+        Console.WriteLine("Robbing:");
+        words = "Will Newson";
+        Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(sleep);
     }
     static void Typing(string words){
         foreach(char letter in words){
