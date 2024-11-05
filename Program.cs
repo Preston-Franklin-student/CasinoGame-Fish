@@ -426,6 +426,8 @@ class Program
         Typing(words);
         words = "Justin Boeve";
         Typing(words);
+        words = "Evan Palma";
+        Typing(words);
         Console.WriteLine();
         Thread.Sleep(sleep);
 
@@ -521,6 +523,29 @@ class Program
         Typing(words);
         Console.WriteLine();
         Thread.Sleep(sleep);
+
+        Console.WriteLine("Special thanks:");
+        words = "Mr. Luyk";
+        Typing(words);
+        words = "Mr. Martinez";
+        Typing(words);
+        words = "Anthony Flowers";
+        Typing(words);
+        words = "Clyde Hettinga";
+        Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(sleep);
+
+        Console.WriteLine("Credits:");
+        words = "Yosgart Garcia";
+        Typing(words);
+        words = "Fish";
+        Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(sleep*2);
+
+        words = "And Ur Mom!";
+        Typing(words);
     }
     static void Typing(string words){
         foreach(char letter in words){
