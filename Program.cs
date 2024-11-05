@@ -416,22 +416,6 @@ class Program
         Typing(words);
         Console.WriteLine();
         Thread.Sleep(4000);
-        Console.WriteLine("Developers:");
-        words = "Will Newson";
-        Typing(words);
-        words = "Jacob Woudwyk";
-        Typing(words);
-        words = "Yosgart Garcia";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(4000);
-        Console.WriteLine("Troubleshooting:");
-        words = "Yosgart Garcia";
-        Typing(words);
-        words = "Will Newson";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(4000);
         Console.WriteLine("Language conversion:");
         words = "Chat GPT";
         Typing(words);
@@ -442,6 +426,40 @@ class Program
         Typing(words);
         words = "Mr. Martinez";
         Typing(words);
+        Thread.Sleep(4000);
+        Console.WriteLine();
+        Console.WriteLine("Troubleshooting:");
+        words = "Yosgart Garcia";
+        Typing(words);
+        words = "Will Newson";
+        Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(4000);
+
+        Console.WriteLine("Home screen:");
+        words = "Fish";
+        Typing(words);
+        words = "Jacob Woudwyk";
+        Typing(words);
+        words = "Yosgart Garcia";
+        Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(4000);
+        
+        Console.WriteLine("Boxing:");
+        words = "Fish";
+        Typing(words);
+        words = "Jacob Woudwyk";
+        Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(4000);
+
+        Console.WriteLine("Slots:");
+        words = "Fish";
+        Typing(words);
+        words = "Jacob Woudwyk";
+        Typing(words);
+        Console.WriteLine();
         Thread.Sleep(4000);
     }
     static void Typing(string words){
