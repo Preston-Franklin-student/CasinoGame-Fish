@@ -181,23 +181,6 @@ class Program
         Console.Clear();
         while (p1Health > 0 && p2Health > 0)
         {
-            int x = (14-p1.Length)/2;
-            int z;
-            if (p1.Length % 2 == 0){
-                z = x;
-            } else {
-                z = x + 1;
-            }
-            int y = p2.Length/2;
-            int w;
-            if (p2.Length % 2 == 0){
-                w = y;
-            } else {
-                w = y + 1;
-            }
-            char chair = '~';
-            string p1Row =  p1.PadLeft(x, chair).PadRight(z, chair);
-            string p2Row = p2.PadLeft(y, chair).PadRight(w, chair);
             Console.WriteLine($"    Health: {p1Health}");
             Console.WriteLine("|--------------|");
             Console.Write("|");
