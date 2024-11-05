@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CasinoGame-Fish")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a4516e0ada31d02130a6a47f1799dd1681a76f0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28d0d35249cb05af263890d4601de9348734ea86")]
 [assembly: System.Reflection.AssemblyProductAttribute("CasinoGame-Fish")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CasinoGame-Fish")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

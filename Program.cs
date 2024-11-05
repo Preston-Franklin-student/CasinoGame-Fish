@@ -297,10 +297,12 @@ class Program
             money -= 25;
             Console.WriteLine($"You have ${money}");
             int exit = 0;
+            int longerAnimation = 5;
             Console.WriteLine("Press f to pull the Lever");
             while(Console.ReadKey().Key != ConsoleKey.F){
             }
-            while(exit != 1){
+            while(exit != 1 || longerAnimation > 0){
+            longerAnimation--;
             exit = random.Next(1,biggest);
             num1 = random.Next(1, biggest);
             Console.Clear();
