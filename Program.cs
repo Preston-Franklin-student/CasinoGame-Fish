@@ -423,13 +423,12 @@ class Program
             Random rand = new Random();
             int RandNum = rand.Next(1, 4);
             Thread.Sleep(1000);
-            Console.WriteLine("You take a drink.");
-            Thread.Sleep(1000);
-            Console.WriteLine("You take a drink..");
-            Thread.Sleep(1000);
-            Console.WriteLine("You take a drink...");
-            Thread.Sleep(1000);
-            Console.WriteLine("You take a drink....");
+            Console.Write("You take a drink.");
+            for(int i = 0; i<4; i++){
+                Thread.Sleep(1000);
+                Console.Write(".");
+            }
+            Console.WriteLine();
             Thread.Sleep(1000);
             if (RandNum == 1)
             {
