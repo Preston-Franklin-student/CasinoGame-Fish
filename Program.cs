@@ -582,6 +582,14 @@ class Program
         Console.WriteLine();
         Thread.Sleep(sleep);
 
+        Console.WriteLine("Bar:");
+        words = "Evan Palma";
+        Typing(words);
+        words = "Fish";
+        Typing(words);
+        words = "Jacob Woudwyk";
+        Typing(words);
+
         Console.WriteLine("Special thanks:");
         words = "Mr. Luyk";
         Typing(words);
