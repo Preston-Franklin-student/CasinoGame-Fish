@@ -14,7 +14,7 @@ class Program
         int gamesInRow = 1;
         string choiceBefore;
         int result;
-        string[] drunkChoiceList = {"rob","rob","rob","boxing","horses","jack","slots","poker","coin","credits","bar","bar","bar","quit"};
+        string[] drunkChoiceList = {"rob","rob","rob","boxing","horses","jack","slots","poker","coin","credits","bar","bar","bar","bar","quit"};
         while (choice.ToLower() != "quit")
         {
             Console.Clear();
@@ -911,6 +911,8 @@ class Program
         Thread.Sleep(sleep);
     }
     static void Typing(string words){
+        if(isDrunk > 2 || loseSwitch)
+        words = "?????";
         foreach(char letter in words){
             Thread.Sleep(100);
             Console.Write(letter);
