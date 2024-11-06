@@ -39,7 +39,7 @@ class Program
                     Slots();
                     break;
                 case "rob":
-                    result = TrainGame.Play();
+                    result = Rob.Play();
                     if (result){
                         Random random = new Random();
                         int stole = random.Next(150,5000);
@@ -397,7 +397,7 @@ class Program
 
     }
     static void Credits(){
-        int sleep = 3500;
+        int sleep = 0;
         Console.Clear();
         Console.WriteLine("Credits:\n");
         Console.WriteLine("Main Producer:");
@@ -451,7 +451,7 @@ class Program
         Console.WriteLine("Troubleshooting:");
         words = "Yosgart Garcia";
         Typing(words);
-        words = "Will Newson";
+        words = "William Newson";
         Typing(words);
         Console.WriteLine();
         Thread.Sleep(sleep);
@@ -494,7 +494,7 @@ class Program
         Thread.Sleep(sleep);
 
         Console.WriteLine("Blackjack:");
-        words = "Will Newson";
+        words = "William Newson";
         Typing(words);
         Console.WriteLine();
         Thread.Sleep(sleep);
@@ -522,7 +522,7 @@ class Program
         Thread.Sleep(sleep);
 
         Console.WriteLine("Robbing:");
-        words = "Will Newson";
+        words = "William Newson";
         Typing(words);
         Console.WriteLine();
         Thread.Sleep(sleep);
