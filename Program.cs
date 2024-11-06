@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 class Program
 {
     static int money = 200;
     static List<string> nameList = new List<string> { "Bob", "Jeffery", "Yosgart", "Jacob", "Fish", "Will", "Mr. Luyk", "Clyde", "Evan", "Trevor", "Grank", "Justin", "Coby", "Jack", "John", "Chase", "Caleb", "Preston", "Mr. Martinez", "Alec" };
     static bool loseSwitch = false;
+    static int isDrunk = 0;
     static void Main(string[] args)
     {
         string choice = "";
         int gamesInRow = 1;
         string choiceBefore;
         bool result;
+        string[] drunkChoiceList = {"rob","rob","rob","boxing","horses","jack","slots","poker","coin","credits","bar","bar","bar","quit"};
         while (choice.ToLower() != "quit")
         {
             Console.Clear();
@@ -23,13 +26,17 @@ class Program
             gamesInRow++;
             else
             gamesInRow -= gamesInRow - 1;
-            if(gamesInRow > 5)
+            if(gamesInRow > 5 || isDrunk > 4)
             loseSwitch = true;
             else
             loseSwitch = false;
             if(loseSwitch)
             Console.WriteLine("Lose Switch is Activated!");
             Thread.Sleep(400);
+            if (isDrunk > 1){
+                Random drunkCoice = new Random();
+                choice = drunkChoiceList[drunkCoice.Next(0,14)];
+            }
             switch (choice.ToLower())
             {
                 case "boxing":
@@ -54,6 +61,9 @@ class Program
                     break;
                 case "credits":
                     Credits();
+                    break;
+                case "bar":
+                    isDrunk += Bar();
                     break;
                 default:
                     break;
@@ -395,6 +405,51 @@ class Program
         }
         
 
+    }
+    static int Bar()
+    {
+        string UserAnswer;
+        Console.Clear();
+        if (isDrunk <= 3){
+            Console.Write("You are at the bar.\nDo you want a drink for $30? (y/n): ");
+            UserAnswer = Console.ReadLine();
+        } else{
+            Console.WriteLine("You go back to the bar and order another dwink.");
+            UserAnswer = "y";
+        }
+        if (UserAnswer == "y")
+        {
+            money-= 30;
+            Random rand = new Random();
+            int RandNum = rand.Next(1, 4);
+            Thread.Sleep(1000);
+            Console.WriteLine("You take a drink.");
+            Thread.Sleep(1000);
+            Console.WriteLine("You take a drink..");
+            Thread.Sleep(1000);
+            Console.WriteLine("You take a drink...");
+            Thread.Sleep(1000);
+            Console.WriteLine("You take a drink....");
+            Thread.Sleep(1000);
+            if (RandNum == 1)
+            {
+                Console.WriteLine("You feel... drunk...");
+                Thread.Sleep(4000);
+                return 2;
+            }
+            else
+            {
+                Console.WriteLine("Nothing happens.");
+                Thread.Sleep(4000);
+                return 1;
+            }
+        }
+        else
+        {
+            Console.WriteLine("You go to the bar yet don't even sit down.\nYou don't know what you are doing.");
+            Thread.Sleep(4000);
+            return 0;
+        }
     }
     static void Credits(){
         int sleep = 0;
