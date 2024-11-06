@@ -411,7 +411,7 @@ class Program
         string UserAnswer;
         Console.Clear();
         if (isDrunk <= 3){
-            Console.Write("You are at the bar.\nDo you want a drink for $30? (y/n): ");
+            Console.Write("You are at the bar.\nDo you want a drink for $10? (y/n): ");
             UserAnswer = Console.ReadLine();
         } else{
             Console.WriteLine("You go back to the bar and order another dwink.");
@@ -419,7 +419,7 @@ class Program
         }
         if (UserAnswer == "y")
         {
-            money-= 30;
+            money-= 10;
             Random rand = new Random();
             int RandNum = rand.Next(1, 4);
             Thread.Sleep(1000);
@@ -588,6 +588,8 @@ class Program
         Typing(words);
         words = "Jacob Woudwyk";
         Typing(words);
+        Console.WriteLine();
+        Thread.Sleep(sleep);
 
         Console.WriteLine("Special thanks:");
         words = "Mr. Luyk";
