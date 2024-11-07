@@ -46,7 +46,7 @@ public class SaveData {
         }
     }
 
-    public void SetValue(string key, object value) {
+    public void SetValue(string key, object? value) {
         values[key] = value?.ToString();
         Save();
     }
