@@ -1,4 +1,20 @@
 public class Helpers {
+    public static void Typing(GameState gameState, string words, int delay)
+    {
+        if (gameState.drunkLevel > 2 || gameState.loseSwitch)
+            words = "?????";
+        foreach (char letter in words)
+        {
+            Thread.Sleep(delay);
+            Console.Write(letter);
+        }
+        Console.WriteLine();
+    }
+
+    public static void Typing(GameState gameState, string words) {
+        Typing(gameState, words, 100);
+    }
+
     public static void DisplayPlayerStats(GameState gameState, string player, int damage, int defense, int health, int speed)
     {
         if (!gameState.loseSwitch){

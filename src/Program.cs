@@ -121,7 +121,7 @@ class Program
         Console.WriteLine($"You ended with ${gameState.money}!");
         Thread.Sleep(7000);
         string words = "And Ur Mom!";
-        Typing(words);
+        Helpers.Typing(gameState, words);
     }
 
     static int Bar()
@@ -175,175 +175,13 @@ class Program
 
     static void Credits()
     {
-        int sleep = 200;
-        Console.Clear();
-        Console.WriteLine("Credits:\n");
-        Console.WriteLine("Main Producer:");
-        string words = "Fish";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Main Developer:");
-        words = "Fish";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Concept Creators:");
-        words = "Jacob Woudwyk";
-        Typing(words);
-        words = "Mr. Luyk";
-        Typing(words);
-        words = "Yosgart Garcia";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Play Testers:");
-        words = "Mr. Luyk";
-        Typing(words);
-        words = "Coby Johnson";
-        Typing(words);
-        words = "Justin Boeve";
-        Typing(words);
-        words = "Evan Palma";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Language conversion:");
-        words = "Chat GPT";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Teachers:");
-        words = "Mr. Luyk";
-        Typing(words);
-        words = "Mr. Martinez";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Troubleshooting:");
-        words = "Yosgart Garcia";
-        Typing(words);
-        words = "William Newson";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Animation lead:");
-        words = "Clyde Hettinga";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-        Console.WriteLine("Animation assistants:");
-        words = "Fish";
-        Typing(words);
-        words = "Jacob Woudwyk";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Home screen:");
-        words = "Fish";
-        Typing(words);
-        words = "Jacob Woudwyk";
-        Typing(words);
-        words = "Yosgart Garcia";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Boxing:");
-        words = "Fish";
-        Typing(words);
-        words = "Jacob Woudwyk";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Horse racing:");
-        words = "Jacob Woudwyk";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Blackjack:");
-        words = "William Newson";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Slots:");
-        words = "Fish";
-        Typing(words);
-        words = "Jacob Woudwyk";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Poker:");
-        words = "Coby Johnson";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Coin flip:");
-        words = "Fish";
-        Typing(words);
-        words = "Jacob Woudwyk";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Robbing:");
-        words = "William Newson";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Bar:");
-        words = "Evan Palma";
-        Typing(words);
-        words = "Fish";
-        Typing(words);
-        words = "Jacob Woudwyk";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Special thanks:");
-        words = "Mr. Luyk";
-        Typing(words);
-        words = "Mr. Martinez";
-        Typing(words);
-        words = "Anthony Flowers";
-        Typing(words);
-        words = "Clyde Hettinga";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-
-        Console.WriteLine("Credits:");
-        words = "Yosgart Garcia";
-        Typing(words);
-        words = "Fish";
-        Typing(words);
-        Console.WriteLine();
-        Thread.Sleep(sleep);
-    }
-    static void Typing(string words)
-    {
-        if (gameState.drunkLevel > 2 || loseSwitch)
-            words = "?????";
-        foreach (char letter in words)
-        {
-            Thread.Sleep(100);
-            Console.Write(letter);
+        foreach (string key in Constants.Credits.Keys) {
+            Helpers.Typing(gameState, key, 50);
+            foreach (string value in Constants.Credits[key]) {
+                Helpers.Typing(gameState, $" - {value}", 50);
+                Thread.Sleep(100);
+            }
+            Thread.Sleep(250);
         }
-        Console.WriteLine();
     }
 }
