@@ -778,7 +778,7 @@ class Program
     Thread.Sleep(8000);
     }
     static void Credits(){
-        int sleep = 0;
+        int sleep = 200;
         Console.Clear();
         Console.WriteLine("Credits:\n");
         Console.WriteLine("Main Producer:");
