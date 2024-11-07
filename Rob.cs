@@ -23,8 +23,8 @@ public static class Rob
             Console.WriteLine("There's three vaults in the casino.");
                 Console.WriteLine("");
             Console.WriteLine("Vault One is a easy vault with little security, it has a math problem as a password.");
-            Console.WriteLine("Vault Two is a medium vault with some security, it  has a history question as a password.");
-            Console.WriteLine("Vault Three is a hard vault with lots of security, it has faulty code that needs solving as a password.");
+            Console.WriteLine("Vault Two [WIP] is a medium vault with some security, it  has a history question as a password.");
+            Console.WriteLine("Vault Three [WIP] is a hard vault with lots of security, it has faulty code that needs solving as a password.");
 
             Console.WriteLine("");
 
