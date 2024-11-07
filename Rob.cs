@@ -92,7 +92,9 @@ public static class Rob
         Thread.Sleep(1000);
         Console.WriteLine("");
         Typing("You come upon the first vault without being caught");
+        Thread.Sleep(1000);
         Typing("next to the input you see a sticky note.");
+        Thread.Sleep(1500);
 
         Console.WriteLine(@"                ___________________________               ");
         Console.WriteLine(@"               |                           |              ");
@@ -113,6 +115,8 @@ public static class Rob
         Console.WriteLine(@"               |                           |              ");
         Console.WriteLine(@"               \___________________________/              ");
 
+        Console.WriteLine("");
+        Thread.Sleep(3000);
         Typing("Whats the Awnser");
         
         if (Console.ReadLine() == "125")
@@ -220,7 +224,7 @@ public static class Rob
 
     static void Typing(string words){
         foreach(char letter in words){
-            Thread.Sleep(100);
+            Thread.Sleep(25);
             Console.Write(letter);
         }
         Console.WriteLine();
