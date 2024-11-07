@@ -1,6 +1,9 @@
 using System;
 public static class Rob
 {
+    static int num1;
+    static int num2;
+    static int MathAnswer;
     public static int Play()
     {
         Console.Clear();
@@ -8,11 +11,11 @@ public static class Rob
         Console.WriteLine("There are severe consequences for armed robbery. Are you sure you want to continue?");
         Console.WriteLine("[Y/N]");
         string awnserA = Console.ReadLine();
-        if (awnserA.ToLower().Contains('n'))
+        if (awnserA.Contains('n') || awnserA.Contains('N'))
         {
             return 4;
         }
-        else if (awnserA.ToLower().Contains('y'))
+        else if (awnserA.Contains('y') || awnserA.Contains('Y'))
         {
             Console.Clear();
             Console.WriteLine("There's three vaults in the casino.");
@@ -110,7 +113,7 @@ public static class Rob
         Console.WriteLine(@"               |                           |              ");
         Console.WriteLine(@"               |          **NOTE**         |              ");
         Console.WriteLine(@"               |      ________________     |              ");
-        Console.WriteLine($"               |     | Whats 83 + 42? |    |              ");
+        Console.WriteLine($"               |     | Whats {MathProblem()}? |    |              ");
         Console.WriteLine(@"               |     |________________|    |              ");
         Console.WriteLine(@"               |                           |              ");
         Console.WriteLine(@"               \___________________________/              ");
@@ -119,7 +122,7 @@ public static class Rob
         Thread.Sleep(3000);
         Typing("Whats the Awnser");
         
-        if (Console.ReadLine() == "125")
+        if (int.Parse(Console.ReadLine()) == MathAnswer)
         {
             Console.WriteLine("Correct!");
             return true;
@@ -128,6 +131,17 @@ public static class Rob
         {
             return false;
         }
+    }
+
+    public static object MathProblem()
+    {
+        Random random = new Random();
+        num1 = random.Next(6, 100);
+        num2 = random.Next(6, 100);
+        MathAnswer = num1 + num2;
+
+        return ($"{num1} + {num2}");
+
     }
     #region maybe
     /*
