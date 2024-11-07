@@ -17,6 +17,9 @@ class Program
         string[] drunkChoiceList = {"rob","rob","boxing","horses","jack","slots","poker","coin","credits","bar","bar","bar","bar","quit"};
         while (choice.ToLower() != "quit")
         {
+            Random undoDrunk = new Random();
+            if(undoDrunk.Next(1,4) == 1 && isDrunk > 0)
+            isDrunk--;
             Console.Clear();
             Console.WriteLine($"Welcome to The Casino!\nYou can bet on boxing, horse racing, blackjack, slots, poker, coin flipping, rob the casino, or quit.\nYou have ${money}.");
             Console.Write("What do you want to play (boxing, horses, jack, slots, poker, coin, rob, quit)? ");
