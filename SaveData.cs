@@ -8,7 +8,7 @@ public class SaveData {
     /// A dictionary to store key-value pairs where both the key and value are strings.
     /// The value can be null (string?).
     /// </summary>
-    private Dictionary<string, string?> values = new();
+    private readonly Dictionary<string, string?> values = new();
 
     /// <summary>
     /// The path to the save file where data is stored.
