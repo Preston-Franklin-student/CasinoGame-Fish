@@ -22,6 +22,20 @@ public class SaveData {
     /// <param name="saveFile">The path to the save file.</param>
     public SaveData(string saveFile) {
         this.saveFile = saveFile;
+
+        string? directoryPath = Path.GetDirectoryName(saveFile);
+        if (!Directory.Exists(directoryPath))
+        {
+            Directory.CreateDirectory(directoryPath!);
+        }
+
+        // Create the file if it does not exist
+        if (!File.Exists(saveFile))
+        {
+            using (FileStream fs = File.Create(saveFile)) { }
+        }
+
+
         Load(); // Load existing data from the file when the object is created.
     }
 
@@ -44,10 +58,6 @@ public class SaveData {
     /// Each line in the file must follow the 'key = value' format.
     /// </summary>
     private void Load() {
-        // If the file doesn't exist, create a new empty file.
-        if (!File.Exists(saveFile))
-            using (FileStream fs = File.Create(saveFile)) {}
-
         // Read the file and parse key-value pairs.
         using (StreamReader reader = new StreamReader(saveFile)) {
             var line = reader.ReadLine();
@@ -100,5 +110,20 @@ public class SaveData {
         
         // Save the updated dictionary to the file.
         Save();
+    }
+
+    /// <summary>
+    /// Checks whether the specified key exists in the collection of values.
+    /// </summary>
+    /// <param name="key">The key to check for in the collection.</param>
+    /// <returns>
+    /// <c>true</c> if the key exists in the collection; otherwise, <c>false</c>.
+    /// </returns>
+    /// <remarks>
+    /// This method checks if the specified key is present in the internal collection (e.g., a dictionary or similar data structure).
+    /// It can be useful for verifying whether a particular value or entry has been added to the collection before attempting to access or manipulate it.
+    /// </remarks>
+    public bool HasValue(string key) {
+        return values.ContainsKey(key);
     }
 }
