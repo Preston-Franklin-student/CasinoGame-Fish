@@ -4,7 +4,21 @@ using System.ComponentModel;
 
 class Program
 {
-    static int money = 200;
+    static SaveData saveData = new SaveData("data/savedata.props");
+
+    static int money {
+        get {
+            if (!saveData.HasValue("money"))
+                saveData.SetValue("money", 200);
+            return saveData.GetValue<int>("money");
+        }
+
+        set {
+            saveData.SetValue("money", value);
+        }
+    }
+
+
     static List<string> nameList = new List<string> { "Bob", "Jeffery", "Yosgart", "Jacob", "Fish", "Will", "Mr. Luyk", "Clyde", "Evan", "Trevor", "Grank", "Justin", "Coby", "Jack", "John", "Chase", "Caleb", "Preston", "Mr. Martinez", "Alec" };
     static bool loseSwitch = false;
     static int isDrunk = 0;
