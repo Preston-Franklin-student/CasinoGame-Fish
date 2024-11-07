@@ -8,11 +8,11 @@ public static class Rob
         Console.WriteLine("There are severe consequences for armed robbery. Are you sure you want to continue?");
         Console.WriteLine("[Y/N]");
         string awnserA = Console.ReadLine();
-        if (awnserA.Contains('n') || awnserA.Contains('N'))
+        if (awnserA.ToLower().Contains('n'))
         {
             return 4;
         }
-        else if (awnserA.Contains('y') || awnserA.Contains('Y'))
+        else if (awnserA.ToLower().Contains('y'))
         {
             Console.Clear();
             Console.WriteLine("There's three vaults in the casino.");
