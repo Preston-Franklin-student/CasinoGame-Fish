@@ -47,13 +47,41 @@ class Program
                     break;
                 case "rob":
                     result = Rob.Play();
-                    if (result == 1){
+                    if (result == 0){
+                        Console.WriteLine("You Lost");   
+                        Console.Write("Press enter to continue.");
+                        Console.ReadLine();
+                        break;
+                    }
+                    else if (result == 1){
                         Random random = new Random();
-                        int stole = random.Next(150,5000);
+                        int stole = random.Next(150,1000);
                         Console.WriteLine("You successfully stole $" + stole + "!");
                         money += stole;
                         Console.Write("Press enter to continue.");
                         Console.ReadLine();
+                        break;
+                    }
+                    else if (result == 2){
+                        Random random = new Random();
+                        int stole = random.Next(500,1500);
+                        Console.WriteLine("You successfully stole $" + stole + "!");
+                        money += stole;
+                        Console.Write("Press enter to continue.");
+                        Console.ReadLine();
+                        break;
+                    }
+                    else if (result == 3){
+                        Random random = new Random();
+                        int stole = random.Next(1000,2000);
+                        Console.WriteLine("You successfully stole $" + stole + "!");
+                        money += stole;
+                        Console.Write("Press enter to continue.");
+                        Console.ReadLine();
+                        break;
+                    }
+                    else if (result == 4){
+                        break;
                     }
                     break;
                 case "coin":
