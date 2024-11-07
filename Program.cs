@@ -858,9 +858,10 @@ class Program
         money += possibleValue2;
         Console.WriteLine("Congragulations, you won $" + money + ".");
         }
-        else
+        else{
         money += random.Next(1, possibleValue2);
         Console.WriteLine("Congragulations, you won $???.");
+        }
         }
         else
         Console.WriteLine("Alright, Leave then");
