@@ -4,8 +4,10 @@ public static class Rob
     static int num1;
     static int num2;
     static int MathAnswer;
-    public static int Play()
+    static bool isDrunk;
+    public static int Play(bool isDrunkIn)
     {
+        isDrunk = isDrunkIn;
         Console.Clear();
         Console.WriteLine("You've decided to rob the only place that brings you joy.");
         Console.WriteLine("There are severe consequences for armed robbery. Are you sure you want to continue?");
@@ -30,33 +32,18 @@ public static class Rob
             string awnserB = Console.ReadLine();
             if (awnserB == "1")
             {
-                if (VaultOne() == true)
+                if (Caught(1) == false) // have you been caught?
                 {
-                    return 1;
+                    if (VaultOne() == true) // did you rob the vault?
+                    {
+                        return 1;   // you robbed vault 1
+                    }
+                    else
+                    {
+                        return 0;   // you failed to rob vault 1
+                    }
                 }
-                else
-                {
-                    return 0;
-                }
-            }
-            else if (awnserB == "2")
-            {
-                if (VaultOne() == true)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            else if (awnserB == "3")
-            {
-                if (VaultOne() == true)
-                {
-                    return 1;
-                }
-                else
+                else    // you got caught trying to rob
                 {
                     return 0;
                 }
@@ -68,11 +55,31 @@ public static class Rob
         }
         else 
         {
-            Play();
+            Play(isDrunk);
             return 4;
         }
     }
-    
+    static int chance;
+    public static bool Caught(int VaultNumber)
+    {
+        Random random = new Random();
+        if (VaultNumber == 1) {chance = random.Next(1, 11);} // 1/10 chance of being caught
+        else if (VaultNumber == 2) {chance = random.Next(1, 6);} // 1/5 chance of being caught
+        else if (VaultNumber == 3) {chance = random.Next(1, 3);} // 1/2 chance of being caught
+        else {}
+        if (chance == 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+
+    #region Vault One
+
     public static bool VaultOne()
     {
         Console.WriteLine(@"             _______________________________________              ");
@@ -96,7 +103,7 @@ public static class Rob
         Console.WriteLine("");
         Typing("You come upon the first vault without being caught");
         Thread.Sleep(1000);
-        Typing("next to the input you see a sticky note.");
+        Typing("Next to the input you see a sticky note.");
         Thread.Sleep(1500);
 
         Console.WriteLine(@"                ___________________________               ");
@@ -113,14 +120,17 @@ public static class Rob
         Console.WriteLine(@"               |                           |              ");
         Console.WriteLine(@"               |          **NOTE**         |              ");
         Console.WriteLine(@"               |      ________________     |              ");
-        Console.WriteLine($"               |     | Whats {MathProblem()}? |    |              ");
+        if (isDrunk == true){
+        Console.WriteLine($"               |     |  (,,𖦹﹏𖦹,,)?   |    |              ");}
+        else 
+        {Console.WriteLine($"               |     | Whats {MathProblem()}? |    |              ");}
         Console.WriteLine(@"               |     |________________|    |              ");
         Console.WriteLine(@"               |                           |              ");
         Console.WriteLine(@"               \___________________________/              ");
 
         Console.WriteLine("");
         Thread.Sleep(3000);
-        Typing("Whats the Awnser");
+        Typing("Whats the answer");
         
         if (int.Parse(Console.ReadLine()) == MathAnswer)
         {
@@ -136,104 +146,14 @@ public static class Rob
     public static object MathProblem()
     {
         Random random = new Random();
-        num1 = random.Next(6, 100);
-        num2 = random.Next(6, 100);
+        num1 = random.Next(10, 100);
+        num2 = random.Next(10, 100);
         MathAnswer = num1 + num2;
 
         return ($"{num1} + {num2}");
 
     }
-    #region maybe
-    /*
-    public static void VaultTwo()
-    {
-        Console.WriteLine(@"             _______________________________________              ");
-        Console.WriteLine(@"            /                                       \             ");
-        Console.WriteLine(@"           /                                         \            ");
-        Console.WriteLine(@"          |                                           |           ");
-        Console.WriteLine(@"          |              _______________              |           ");
-        Console.WriteLine(@"          |             |               |             |           ");
-        Console.WriteLine(@"          |             |   VAULT   2   |             |           ");
-        Console.WriteLine(@"          |             |_______________|             |           ");
-        Console.WriteLine(@"          |             |      ___      |             |           ");
-        Console.WriteLine(@"          |             |     /   \     |             |           ");
-        Console.WriteLine(@"          |             |     | : |     |             |           ");
-        Console.WriteLine(@"          |             |     \___/     |             |           ");
-        Console.WriteLine(@"          |             |_______________|             |           ");
-        Console.WriteLine(@"          |                                           |           ");
-        Console.WriteLine(@"          \                                           /           ");
-        Console.WriteLine(@"           \_________________________________________/            ");
 
-        Thread.Sleep(1000);
-        Console.WriteLine("")
-        Typing("You come upon the first vault without being caught");
-        Typing("next to the input you see a sticky note.")
-
-        Console.WriteLine(@"                ___________________________               ");
-        Console.WriteLine(@"               |                           |              ");
-        Console.WriteLine(@"               |          VAULT 2          |              ");
-        Console.WriteLine(@"               |___________________________|              ");
-        Console.WriteLine(@"               |                           |              ");
-        Console.WriteLine(@"               |      [ INPUT PANEL ]      |              ");
-        Console.WriteLine(@"               |      ________________     |              ");
-        Console.WriteLine(@"               |     |                |    |              ");
-        Console.WriteLine(@"               |     |   Enter Code   |    |              ");
-        Console.WriteLine(@"               |     |________________|    |              ");
-        Console.WriteLine(@"               |                           |              ");
-        Console.WriteLine(@"               |                           |              ");
-        Console.WriteLine(@"               |          **NOTE**         |              ");
-        Console.WriteLine(@"               |      ________________     |              ");
-        Console.WriteLine($"               |     | Whats {Two('q')}? |    |              ");
-        Console.WriteLine(@"               |     |________________|    |              ");
-        Console.WriteLine(@"               |                           |              ");
-        Console.WriteLine(@"               \___________________________/              ");
-
-    }
-    public static void VaultThree()
-    {
-        Console.WriteLine(@"             _______________________________________              ");
-        Console.WriteLine(@"            /                                       \             ");
-        Console.WriteLine(@"           /                                         \            ");
-        Console.WriteLine(@"          |                                           |           ");
-        Console.WriteLine(@"          |              _______________              |           ");
-        Console.WriteLine(@"          |             |               |             |           ");
-        Console.WriteLine(@"          |             |   VAULT   3   |             |           ");
-        Console.WriteLine(@"          |             |_______________|             |           ");
-        Console.WriteLine(@"          |             |      ___      |             |           ");
-        Console.WriteLine(@"          |             |     /   \     |             |           ");
-        Console.WriteLine(@"          |             |     | : |     |             |           ");
-        Console.WriteLine(@"          |             |     \___/     |             |           ");
-        Console.WriteLine(@"          |             |_______________|             |           ");
-        Console.WriteLine(@"          |                                           |           ");
-        Console.WriteLine(@"          \                                           /           ");
-        Console.WriteLine(@"           \_________________________________________/            ");
-
-        Thread.Sleep(1000);
-        Console.WriteLine("")
-        Typing("You come upon the first vault without being caught");
-        Typing("next to the input you see a sticky note.")
-
-        Console.WriteLine(@"                ___________________________               ");
-        Console.WriteLine(@"               |                           |              ");
-        Console.WriteLine(@"               |          VAULT 3          |              ");
-        Console.WriteLine(@"               |___________________________|              ");
-        Console.WriteLine(@"               |                           |              ");
-        Console.WriteLine(@"               |      [ INPUT PANEL ]      |              ");
-        Console.WriteLine(@"               |      ________________     |              ");
-        Console.WriteLine(@"               |     |                |    |              ");
-        Console.WriteLine(@"               |     |   Enter Code   |    |              ");
-        Console.WriteLine(@"               |     |________________|    |              ");
-        Console.WriteLine(@"               |                           |              ");
-        Console.WriteLine(@"               |                           |              ");
-        Console.WriteLine(@"               |          **NOTE**         |              ");
-        Console.WriteLine(@"               |      ________________     |              ");
-        Console.WriteLine($"               |     | Whats {Three('q')}? |    |              ");
-        Console.WriteLine(@"               |     |________________|    |              ");
-        Console.WriteLine(@"               |                           |              ");
-        Console.WriteLine(@"               \___________________________/              ");
-
-    }
-    */
     #endregion
 
     static void Typing(string words){
