@@ -9,7 +9,7 @@
         { "slots", new Slots() },
         { "bar", new Bar() },
         { "rob", new RobGame() },
-        { "credits", null },
+        { "credits", new Credits() },
         { "quit", null }
     };
 
@@ -18,18 +18,18 @@
         { "bar", 4 }
     };
 
+    private readonly static Random rnd = new Random();
+
 
     static void Main(string[] args)
     {
         string? choice = "";
         string? choiceBefore;
         int gamesInRow = 1;
-        // string[] drunkChoiceList = { "rob", "rob", "boxing", "horses", "jack", "slots", "poker", "coin", "credits", "bar", "bar", "bar", "bar", "quit" };
 
-        while (choice?.ToLower() != "quit")
+        while (true)
         {
-            Random undoDrunk = new Random();
-            if (undoDrunk.Next(1, 4) == 1 && gameState.drunkLevel > 0)
+            if (rnd.Next(1, 4) == 1 && gameState.drunkLevel > 0)
                 gameState.drunkLevel--;
 
             Console.Clear();
@@ -62,11 +62,6 @@
             {
                 break;
             }
-            else if (choice == "credits")
-            {
-                Credits();
-                continue;
-            }
             else if (res == null)
             {
                 Console.WriteLine("That game doesn't exist!");
@@ -76,34 +71,14 @@
 
             res.Play();
 
-            Random randy = new Random();
-            int coinflip = randy.Next(1, 21);
-            if (coinflip == 20)
+            if (rnd.Next(1, 21) == 20)
                 games["coin flipping"]!.Play();
         }
 
-        Credits();
+        games["credits"]!.Play();
+
         Console.WriteLine($"You ended with ${gameState.money}!");
         Helpers.SkippableDelay(7000);
         Helpers.Typing("And Ur Mom!");
-    }
-
-    static void Credits()
-    {
-        int delay = 50;
-
-        foreach (string key in Constants.Credits.Keys)
-        {
-            Helpers.Typing(key, delay);
-            foreach (string value in Constants.Credits[key])
-            {
-                if (Helpers.HasPressed(ConsoleKey.Enter))
-                    delay = 0;
-
-                Helpers.Typing($" - {value}", delay);
-                Thread.Sleep(delay == 0 ? 0 : 100);
-            }
-            Thread.Sleep(delay == 0 ? 0 : 250);
-        }
     }
 }

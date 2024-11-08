@@ -25,7 +25,7 @@ public class Boxing : Game
             Console.Write("Bet how much? ");
             try
             {
-                bet = int.Parse(Console.ReadLine());
+                bet = int.Parse(Console.ReadLine() ?? "");
             }
             catch (Exception)
             {
@@ -39,11 +39,11 @@ public class Boxing : Game
             Console.WriteLine("Invalid bet!");
         }
 
-        string guess;
+        string? guess;
         while (true)
         {
             Console.Write("On who? ");
-            guess = Console.ReadLine().ToLower();
+            guess = Console.ReadLine()?.ToLower();
             if (guess == p1.name.ToLower() || guess == p2.name.ToLower())
             {
                 break;
