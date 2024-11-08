@@ -19,14 +19,25 @@ public class CoinFlip : Game
             gameState.money -= amount * multiply;
             Helpers.SkippableDelay(5000);
         }
-
+        char picked = 'n';
+        try{
         Console.Write("Heads or Tails? (h or t): ");
-        char picked = char.Parse(Console.ReadLine()!);
+        picked = char.Parse(Console.ReadLine()!);
+        }
+        catch(Exception){
+        Console.WriteLine("That isn't a character");
+        Thread.Sleep(5000);
+        }
         while (picked != 'h' && picked != 't')
         {
+            try{
             Console.WriteLine("That's not heads or tails!");
             Console.Write("Heads or Tails? (h or t): ");
             picked = char.Parse(Console.ReadLine()!);
+            }
+            catch{
+                Thread.Sleep(5000);
+            }
         }
 
         Console.WriteLine("Flipping Coin!!");
