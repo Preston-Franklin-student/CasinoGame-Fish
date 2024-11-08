@@ -1,10 +1,13 @@
 public class Helpers {
-    public static void Typing(string words, int delay = 100)
+    public static void Typing(string words, int delay = 25, bool skippable = true)
     {
         if (Program.gameState.drunkLevel > 2 || Program.gameState.loseSwitch)
             words = "?????";
         foreach (char letter in words)
         {
+            if (HasPressed(ConsoleKey.Enter))
+                delay=0;
+
             Thread.Sleep(delay);
             Console.Write(letter);
         }
