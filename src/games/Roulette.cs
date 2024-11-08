@@ -6,8 +6,8 @@ public class Roulette : Game
     {
 
         Console.Clear();
-        Console.WriteLine("Do you want to spend $30");
-        if (!(gameState.money < 30 || Console.ReadLine().ToLower().Equals("no")))
+        bool yesNo = Helpers.AskYesNo("Do you want to spend $30");
+        if (!(gameState.money < 30 || !yesNo))
         {
             Random random = new Random();
             int rouletteSpinner = random.Next(25, 70);
@@ -101,7 +101,7 @@ public class Roulette : Game
         else
             Console.WriteLine("Alright, Leave then");
         Console.WriteLine("Press enter to leave");
-        string escape = Console.ReadLine();
+        Console.ReadLine();
     }
 
     static int possibleValues(int possibleValue2, int possibleValue3)
