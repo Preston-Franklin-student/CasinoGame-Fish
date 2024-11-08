@@ -7,7 +7,7 @@ public class HorseRace : Game
         //🐎◼️🔲
         Console.Clear();
         Console.WriteLine("Do you want to spend $150 on Horse Racing (Yes/No)");
-        string play = Console.ReadLine();
+        string play = Console.ReadLine() ?? "";
         if(gameState.money > 150 && (play.ToLower().Equals("yes") || play.ToLower().Equals("y"))){
         Console.Clear();
         Random ran = new Random();
@@ -127,7 +127,7 @@ public class HorseRace : Game
             Console.WriteLine("Enter a number:");
             try
             {
-                bet = int.Parse(Console.ReadLine());
+                bet = int.Parse(Console.ReadLine() ?? "");
             }
             catch (Exception)
             {
