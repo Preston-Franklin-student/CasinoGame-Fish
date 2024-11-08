@@ -12,7 +12,7 @@ public class Slots : Game
         Random random = new Random();
         
         Console.WriteLine("$25 to play!");
-        bool yesNo = Helpers.AskYesNo("Do you want to play (yes/no)?");
+        bool yesNo = Helpers.AskYesNo("Do you want to play (yes/no)? ");
 
         if (!yesNo || gameState.money < 25)
         {
