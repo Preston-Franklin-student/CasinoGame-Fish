@@ -4,19 +4,19 @@ public class Bar : Game
 
     public override void Play()
     {
-        string UserAnswer;
+        string? userAnswer;
         Console.Clear();
         if (gameState.drunkLevel <= 3)
         {
             Console.Write("You are at the bar.\nDo you want a drink for $10? (y/n): ");
-            UserAnswer = Console.ReadLine();
+            userAnswer = Console.ReadLine();
         }
         else
         {
             Console.WriteLine("You go back to the bar and order another dwink.");
-            UserAnswer = "y";
+            userAnswer = "y";
         }
-        if (UserAnswer == "y")
+        if (userAnswer == "y")
         {
             gameState.money -= 10;
             Random rand = new Random();
