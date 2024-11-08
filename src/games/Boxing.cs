@@ -2,7 +2,8 @@ public class Boxing : Game
 {
     public override string Name => "Boxing";
 
-    public override void PlayGame() {
+    public override void PlayGame()
+    {
         Console.Clear();
         Random random = new Random();
         List<int> critNums = new List<int> { 0, 0, 0, 1, 1, 1, 1, 1, 1, 2 };
@@ -14,22 +15,24 @@ public class Boxing : Game
 
         // Player 1 stats initialization
         int p1Defense = random.Next(0, 5), p1Health = random.Next(15, 21), p1Speed = random.Next(1, 11), p1Damage = random.Next(5, 11);
-        Helpers.DisplayPlayerStats(gameState, p1, p1Damage, p1Defense, p1Health, p1Speed);
+        DisplayPlayerStats(p1, p1Damage, p1Defense, p1Health, p1Speed);
 
         // Player 2 stats initialization
         int p2Defense = random.Next(0, 5), p2Health = random.Next(15, 21), p2Speed = random.Next(1, 11), p2Damage = random.Next(5, 11);
-        Helpers.DisplayPlayerStats(gameState, p2, p2Damage, p2Defense, p2Health, p2Speed);
-        
+        DisplayPlayerStats(p2, p2Damage, p2Defense, p2Health, p2Speed);
+
 
         // Betting and game logic
         int bet;
         while (true)
         {
             Console.Write("Bet how much? ");
-            try{
-            bet = int.Parse(Console.ReadLine());
+            try
+            {
+                bet = int.Parse(Console.ReadLine());
             }
-            catch(Exception){
+            catch (Exception)
+            {
                 Console.WriteLine("Not a number!");
                 continue;
             }
@@ -57,19 +60,21 @@ public class Boxing : Game
             Console.WriteLine($"    Health: {p1Health}");
             Console.WriteLine("|--------------|");
             Console.Write("|");
-            for(int i = 0;i < 14 - p1.Length ;i++){
+            for (int i = 0; i < 14 - p1.Length; i++)
+            {
                 Console.Write(" ");
-                if(i==(14-p1.Length-1)/2)
-                Console.Write(p1);
+                if (i == (14 - p1.Length - 1) / 2)
+                    Console.Write(p1);
             }
             Console.WriteLine("|");
             Console.WriteLine("|              |");
             Console.WriteLine("|              |");
             Console.Write("|");
-            for(int i = 0;i < 14 - p2.Length ;i++){
+            for (int i = 0; i < 14 - p2.Length; i++)
+            {
                 Console.Write(" ");
-                if(i==(14-p2.Length-1)/2)
-                Console.Write(p2);
+                if (i == (14 - p2.Length - 1) / 2)
+                    Console.Write(p2);
             }
             Console.WriteLine("|");
             Console.WriteLine("|--------------|");
@@ -108,7 +113,9 @@ public class Boxing : Game
                     Console.WriteLine($"{p1} does {damageDealt} damage to {p2}!");
                     p2Health -= damageDealt;
                 }
-            } else {
+            }
+            else
+            {
                 int crit = critNums[random.Next(critNums.Count)];
                 int damageDealt = crit * (p1Damage - p2Defense);
                 Console.WriteLine($"{p1} does {damageDealt} damage to {p2}!");
@@ -118,7 +125,7 @@ public class Boxing : Game
                 Console.WriteLine($"{p2} does {damageDealt} damage to {p1}!");
                 p1Health -= damageDealt;
             }
-            
+
         }
         Console.WriteLine("Game!");
         if ((guess == p1.ToLower() && p2Health <= 0) || (guess == p2.ToLower() && p1Health <= 0))
@@ -134,5 +141,30 @@ public class Boxing : Game
 
         Console.WriteLine("Press enter to continue.");
         Console.ReadLine();
+    }
+
+    private void DisplayPlayerStats(string player, int damage, int defense, int health, int speed)
+    {
+        string[] stats = { damage.ToString(), defense.ToString(), health.ToString(), speed.ToString() };
+
+        if (gameState.loseSwitch)
+        {
+            for (int i = 0; i < stats.Length; i++)
+                stats[i] = "?";
+        }
+        else
+        {
+            Random random = new Random();
+            int unknown = random.Next(0, 4);
+
+            stats[unknown] = "?";
+        }
+
+
+        Console.WriteLine($"{player}'s stats:");
+        Console.WriteLine($"Attack: {stats[0]}");
+        Console.WriteLine($"Defense: {stats[1]}");
+        Console.WriteLine($"Health: {stats[2]}");
+        Console.WriteLine($"Speed: {stats[3]}");
     }
 }
