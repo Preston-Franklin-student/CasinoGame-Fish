@@ -1,16 +1,12 @@
 public class GameState {
-    public SaveData saveData = new SaveData("data/savedata.props");
-    public int drunkLevel = 0;
+    public readonly SaveData saveData = new SaveData("data/savedata.props");
     public bool loseSwitch = false;
+    public int drunkLevel {
+        get { return saveData.GetOrDefault("drunk-level", 0); }
+        set { saveData.SetValue("drunk-level", value); }
+    }
     public int money {
-        get {
-            if (!saveData.HasValue("money"))
-                saveData.SetValue("money", 200);
-            return saveData.GetValue<int>("money");
-        }
-
-        set {
-            saveData.SetValue("money", value);
-        }
+        get { return saveData.GetOrDefault<int>("money", 200); }
+        set { saveData.SetValue("money", value); }
     }
 }
