@@ -19,7 +19,7 @@ public class Helpers {
         }
     }
 
-    public static bool HasPressed(ConsoleKey key, bool intercept = false) {
+    public static bool HasPressed(ConsoleKey key, bool intercept = true) {
         return Console.KeyAvailable && Console.ReadKey(intercept: intercept).Key == key;
     }
 
