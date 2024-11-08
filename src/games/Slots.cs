@@ -14,9 +14,10 @@ public class Slots : Game
         Console.WriteLine("$25 to play!");
         bool yesNo = Helpers.AskYesNo("Do you want to play (yes/no)?");
 
-        if (yesNo || gameState.money < 25)
+        if (!yesNo || gameState.money < 25)
         {
             Console.WriteLine("Too much, huh?!?!?");
+            Helpers.SkippableDelay(5000);
             return;
         }
 

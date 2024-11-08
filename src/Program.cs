@@ -1,127 +1,87 @@
-﻿
-class Program
+﻿class Program
 {
-    public static GameState gameState = new GameState();
-    private static Dictionary<string, Game> games = new() {
+    public readonly static GameState gameState = new GameState();
+    private readonly static Dictionary<string, Game?> games = new() {
         { "boxing", new Boxing() },
         { "coin flipping", new CoinFlip() },
         { "horses", new HorseRace() },
         { "roulette", new Roulette() },
         { "slots", new Slots() },
-        { "bar", new Bar() }
+        { "bar", new Bar() },
+        { "rob", new RobGame() },
+        { "credits", null },
+        { "quit", null }
+    };
+
+    private readonly static Dictionary<string, int> drunkWeights = new() {
+        { "rob", 2 },
+        { "bar", 4 }
     };
 
 
     static void Main(string[] args)
     {
-        string choice = "";
+        string? choice = "";
+        string? choiceBefore;
         int gamesInRow = 1;
-        string choiceBefore;
-        int result;
-        string[] drunkChoiceList = { "rob", "rob", "boxing", "horses", "jack", "slots", "poker", "coin", "credits", "bar", "bar", "bar", "bar", "quit" };
-        while (choice.ToLower() != "quit")
+        // string[] drunkChoiceList = { "rob", "rob", "boxing", "horses", "jack", "slots", "poker", "coin", "credits", "bar", "bar", "bar", "bar", "quit" };
+
+        while (choice?.ToLower() != "quit")
         {
             Random undoDrunk = new Random();
             if (undoDrunk.Next(1, 4) == 1 && gameState.drunkLevel > 0)
                 gameState.drunkLevel--;
+
             Console.Clear();
-            Console.WriteLine($"Welcome to The Casino!\nYou can bet on boxing, horse racing, blackjack, slots, poker, coin flipping, roulette, rob the casino, or quit.\nYou have ${gameState.money}.");
-            Console.Write("What do you want to play (boxing, horses, jack, slots, poker, coin, spin, rob, quit)? ");
+            Console.WriteLine($"Welcome to The Casino!\nYou can bet on {string.Join(", ", games.Keys)}.");
+            Console.WriteLine($"You have ${gameState.money}");
+            Console.Write($"What do you want to play ({string.Join(", ", games.Keys)})? ");
             choiceBefore = choice;
             choice = Console.ReadLine();
-            if (choiceBefore.ToLower().Equals(choice.ToLower()))
+
+            if (choiceBefore?.ToLower().Equals(choice?.ToLower()) ?? false)
                 gamesInRow++;
             else
-                gamesInRow -= gamesInRow - 1;
-            if (gamesInRow > 5 || gameState.drunkLevel > 4)
-                gameState.loseSwitch = true;
-            else
-                gameState.loseSwitch = false;
+                gamesInRow--;
+
+
+            gameState.loseSwitch = gamesInRow > 5 || gameState.drunkLevel > 4;
             if (gameState.loseSwitch)
                 Console.WriteLine("Lose Switch is Activated!");
-            Thread.Sleep(400);
-            if (gameState.drunkLevel > 1)
-            {
-                Random drunkCoice = new Random();
-                choice = drunkChoiceList[drunkCoice.Next(0, 14)];
+
+
+            Helpers.SkippableDelay(400);
+            if (gameState.drunkLevel > 1) {
+                Console.WriteLine("u drunk?");
+                choice = Helpers.WeightedChoice(games.Keys.ToArray(), drunkWeights)?.ToLower();
             }
-            switch (choice.ToLower())
+
+            var res = games.GetValueOrDefault(choice ?? "", null);
+
+            if (choice == "quit")
             {
-                case "boxing":
-                    new Boxing().Play();
-                    break;
-                case "slots":
-                    new Slots().Play();
-                    break;
-                case "rob":
-                    result = Rob.Play(gameState.drunkLevel >= 2);
-                    if (result == 0)
-                    {
-                        Console.WriteLine("You Lost");
-                        Console.Write("Press enter to continue.");
-                        Console.ReadLine();
-                        break;
-                    }
-                    else if (result == 1)
-                    {
-                        Random random = new Random();
-                        int stole = random.Next(150, 1000);
-                        Console.WriteLine("You successfully stole $" + stole + "!");
-                        gameState.money += stole;
-                        Console.Write("Press enter to continue.");
-                        Console.ReadLine();
-                        break;
-                    }
-                    else if (result == 2)
-                    {
-                        Random random = new Random();
-                        int stole = random.Next(500, 1500);
-                        Console.WriteLine("You successfully stole $" + stole + "!");
-                        gameState.money += stole;
-                        Console.Write("Press enter to continue.");
-                        Console.ReadLine();
-                        break;
-                    }
-                    else if (result == 3)
-                    {
-                        Random random = new Random();
-                        int stole = random.Next(1000, 2000);
-                        Console.WriteLine("You successfully stole $" + stole + "!");
-                        gameState.money += stole;
-                        Console.Write("Press enter to continue.");
-                        Console.ReadLine();
-                        break;
-                    }
-                    else if (result == 4)
-                    {
-                        break;
-                    }
-                    break;
-                case "coin":
-                    new CoinFlip().Play();
-                    break;
-                case "credits":
-                    Credits();
-                    break;
-                case "bar":
-                    new Bar().Play();
-                    break;
-                case "horses":
-                    new HorseRace().Play();
-                    break;
-                case "spin":
-                    new Roulette().Play();
-                    break;
-                default:
-                    break;
+                break;
             }
+            else if (choice == "credits")
+            {
+                Credits();
+                continue;
+            }
+            else if (res == null)
+            {
+                Console.WriteLine("That game doesn't exist!");
+                Helpers.SkippableDelay(1000);
+                continue;
+            }
+
+            res.Play();
+
             Random randy = new Random();
             int coinflip = randy.Next(1, 21);
             if (coinflip == 20)
-            {
-                new CoinFlip().Play();
-            }
+                games["coin flipping"]!.Play();
         }
+
         Credits();
         Console.WriteLine($"You ended with ${gameState.money}!");
         Helpers.SkippableDelay(7000);
@@ -132,9 +92,11 @@ class Program
     {
         int delay = 50;
 
-        foreach (string key in Constants.Credits.Keys) {
+        foreach (string key in Constants.Credits.Keys)
+        {
             Helpers.Typing(key, delay);
-            foreach (string value in Constants.Credits[key]) {
+            foreach (string value in Constants.Credits[key])
+            {
                 if (Helpers.HasPressed(ConsoleKey.Enter))
                     delay = 0;
 

@@ -45,4 +45,26 @@ public class Helpers {
         else
             return AskYesNo(prompt);
     }
+
+    public static string? WeightedChoice(string[] options, Dictionary<string, int> weights)
+    {
+        // Calculate total weight by adding all weights for the options
+        int totalWeight = options.Sum(option => weights.GetValueOrDefault(option, 1));
+
+        Random rand = new Random();
+        int randomValue = rand.Next(totalWeight);
+
+        int cumulativeWeight = 0;
+        for (int i = 0; i < options.Length; i++)
+        {
+            // Get the weight for the current option, defaulting to 1 if not found in dictionary
+            cumulativeWeight += weights.GetValueOrDefault(options[i], 1);
+            
+            // If the random value falls within the current cumulative weight, return this option
+            if (randomValue < cumulativeWeight)
+                return options[i];
+        }
+
+        return null;
+    }
 }

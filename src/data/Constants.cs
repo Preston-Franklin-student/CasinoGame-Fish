@@ -7,7 +7,7 @@ public class Constants {
         { "Play Testers", ["Mr. Luyk", "Coby Johnson", "Justin Boeve", "Evan Palma"] },
         { "Language Conversion ", ["Chat GPT"] },
         { "Teachers", ["Mr. Luyk", "Mr. Martinez"] },
-        { "Troubleshooting", ["Yosgart Garcia", "William Newson"] },
+        { "Troubleshooting", ["Yosgart Garcia", "William Newson", "Dylan Bruner"] },
         { "Animation Lead", ["Clyde Hettinga"] },
         { "Animation Assistants", ["Fish", "Jacob Woudwyk"] },
         { "Home Screen", ["Fish", "Jacob Woudwyk", "Yosgart Garcia"] },
@@ -19,7 +19,7 @@ public class Constants {
         { "Coin Flip", ["Fish", "Jacob Woudwyk"] },
         { "Robbing", ["William Newson"] },
         { "Bar", ["Evan Palma", "Fish", "Jacob Woudwyk"] },
-        { "Special Thanks", ["Mr. Luyk", "Mr. Martinez", "Anthony Flowers", "Clyde Hettinga"]},
+        { "Special Thanks", ["Mr. Luyk", "Mr. Martinez", "Anthony Flowers", "Clyde Hettinga", "Dylan Bruner"]},
         { "Credits", ["Yosgart Garcia", "Fish"] }
     };
 }
