@@ -48,10 +48,10 @@ class Program
             switch (choice.ToLower())
             {
                 case "boxing":
-                    new Boxing().PlayGame();
+                    new Boxing().Play();
                     break;
                 case "slots":
-                    new Slots().PlayGame();
+                    new Slots().Play();
                     break;
                 case "rob":
                     result = Rob.Play(gameState.drunkLevel >= 2);
@@ -98,19 +98,19 @@ class Program
                     }
                     break;
                 case "coin":
-                    new CoinFlip().PlayGame();
+                    new CoinFlip().Play();
                     break;
                 case "credits":
                     Credits();
                     break;
                 case "bar":
-                    new Bar().PlayGame();
+                    new Bar().Play();
                     break;
                 case "horses":
-                    new HorseRace().PlayGame();
+                    new HorseRace().Play();
                     break;
                 case "spin":
-                    new Roulette().PlayGame();
+                    new Roulette().Play();
                     break;
                 default:
                     break;
@@ -119,7 +119,7 @@ class Program
             int coinflip = randy.Next(1, 21);
             if (coinflip == 20)
             {
-                new CoinFlip().PlayGame();
+                new CoinFlip().Play();
             }
         }
         Credits();

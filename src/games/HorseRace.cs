@@ -2,7 +2,7 @@ public class HorseRace : Game
 {
     public override string Name => "Horse Race";
 
-    public override void PlayGame()
+    public override void Play()
     {
         //🐎◼️🔲
         Console.Clear();

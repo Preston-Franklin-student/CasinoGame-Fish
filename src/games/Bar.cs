@@ -2,7 +2,7 @@ public class Bar : Game
 {
     public override string Name => "Bar";
 
-    public override void PlayGame()
+    public override void Play()
     {
         string UserAnswer;
         Console.Clear();

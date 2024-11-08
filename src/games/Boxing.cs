@@ -2,7 +2,7 @@ public class Boxing : Game
 {
     public override string Name => "Boxing";
 
-    public override void PlayGame()
+    public override void Play()
     {
         Console.Clear();
         Random random = new Random();
