@@ -14,10 +14,11 @@ public class Credits : Game
                 if (Helpers.HasPressed(ConsoleKey.Enter))
                     delay = 0;
 
-                Helpers.Typing($" - {value}", delay);
-                Thread.Sleep(delay == 0 ? 0 : 100);
+                Helpers.Typing(value, delay);
+                Thread.Sleep(delay == 0 ? 0 : 200);
             }
-            Thread.Sleep(delay == 0 ? 0 : 250);
+            Console.WriteLine();
+            Thread.Sleep(delay == 0 ? 0 : 1000);
         }
     }
 }
