@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-
+﻿
 class Program
 {
     public static GameState gameState = new GameState();
