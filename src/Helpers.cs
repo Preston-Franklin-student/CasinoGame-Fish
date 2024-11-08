@@ -1,5 +1,5 @@
 public class Helpers {
-    public static void Typing(string words, int delay)
+    public static void Typing(string words, int delay = 100)
     {
         if (Program.gameState.drunkLevel > 2 || Program.gameState.loseSwitch)
             words = "?????";
@@ -11,8 +11,16 @@ public class Helpers {
         Console.WriteLine();
     }
 
-    public static void Typing(GameState gameState, string words) {
-        Typing(words, 100);
+    public static void SkippableDelay(int ms) {
+        for (int i=0; i < ms; i+=25) {
+            if (HasPressed(ConsoleKey.Enter))
+                break;
+            Thread.Sleep(25);
+        }
+    }
+
+    public static bool HasPressed(ConsoleKey key, bool intercept = false) {
+        return Console.KeyAvailable && Console.ReadKey(intercept: intercept).Key == key;
     }
 
     public static void DisplayPlayerStats(GameState gameState, string player, int damage, int defense, int health, int speed)

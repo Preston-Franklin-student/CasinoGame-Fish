@@ -125,22 +125,26 @@ class Program
                 new CoinFlip().PlayGame();
             }
         }
-        // Credits();
-        // Console.WriteLine($"You ended with ${gameState.money}!");
-        // Thread.Sleep(7000);
-        // string words = "And Ur Mom!";
-        // Helpers.Typing(gameState, words);
+        Credits();
+        Console.WriteLine($"You ended with ${gameState.money}!");
+        Helpers.SkippableDelay(7000);
+        Helpers.Typing("And Ur Mom!");
     }
 
     static void Credits()
     {
+        int delay = 50;
+
         foreach (string key in Constants.Credits.Keys) {
-            Helpers.Typing(key, 50);
+            Helpers.Typing(key, delay);
             foreach (string value in Constants.Credits[key]) {
-                Helpers.Typing($" - {value}", 50);
-                Thread.Sleep(100);
+                if (Helpers.HasPressed(ConsoleKey.Enter))
+                    delay = 0;
+
+                Helpers.Typing($" - {value}", delay);
+                Thread.Sleep(delay == 0 ? 0 : 100);
             }
-            Thread.Sleep(250);
+            Thread.Sleep(delay == 0 ? 0 : 250);
         }
     }
 }
