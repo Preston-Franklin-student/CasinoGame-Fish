@@ -1,5 +1,5 @@
 public class Constants {
-    public static readonly List<string> nameList = new List<string> { "Bob", "Jeffery", "Yosgart", "Jacob", "Fish", "Will", "Mr. Luyk", "Clyde", "Evan", "Trevor", "Grank", "Justin", "Coby", "Jack", "John", "Chase", "Caleb", "Preston", "Mr. Martinez", "Alec" };
+    public static readonly List<string> nameList = new List<string> { "Bob", "Jeffery", "Yosgart", "Jacob", "Fish", "Will", "Mr. Luyk", "Clyde", "Evan", "Trevor", "Grank", "Justin", "Coby", "Jack", "John", "Chase", "Caleb", "Preston", "Mr. Martinez", "Alec", "Dylan" };
     public static readonly Dictionary<string, string[]> Credits = new() {
         { "Main Producer", ["Fish"] },
         { "Main Developer", ["Fish"] },
@@ -20,6 +20,6 @@ public class Constants {
         { "Robbing", ["William Newson"] },
         { "Bar", ["Evan Palma", "Fish", "Jacob Woudwyk"] },
         { "Special Thanks", ["Mr. Luyk", "Mr. Martinez", "Anthony Flowers", "Clyde Hettinga"]},
-        { "Credits", ["Yosgart Garcia", "Fish", "Dylan"] }
+        { "Credits", ["Yosgart Garcia", "Fish"] }
     };
 }
