@@ -24,7 +24,6 @@
         string? choice = "";
         string? choiceBefore;
         int gamesInRow = 1;
-        // string[] drunkChoiceList = { "rob", "rob", "boxing", "horses", "jack", "slots", "poker", "coin", "credits", "bar", "bar", "bar", "bar", "quit" };
 
         while (choice?.ToLower() != "quit")
         {
@@ -90,6 +89,7 @@
 
     static void Credits()
     {
+        Console.Clear();
         int delay = 50;
 
         foreach (string key in Constants.Credits.Keys)
@@ -100,10 +100,11 @@
                 if (Helpers.HasPressed(ConsoleKey.Enter))
                     delay = 0;
 
-                Helpers.Typing($" - {value}", delay);
-                Thread.Sleep(delay == 0 ? 0 : 100);
+                Helpers.Typing($"{value}", delay);
+                Thread.Sleep(delay == 0 ? 0 : 200);
             }
-            Thread.Sleep(delay == 0 ? 0 : 250);
+            Console.WriteLine();
+            Thread.Sleep(delay == 0 ? 0 : 1000);
         }
     }
 }
