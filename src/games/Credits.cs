@@ -4,6 +4,7 @@ public class Credits : Game
 
     public override void Play()
     {
+        Console.Clear();
         int delay = 50;
 
         foreach (string key in Constants.Credits.Keys)
