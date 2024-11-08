@@ -7,6 +7,6 @@ public class GameState {
     }
     public int money {
         get { return saveData.GetOrDefault<int>("money", 200); }
-        set { saveData.SetValue("money", value); }
+        set { saveData.SetValue("money", Math.Max(0, value)); }
     }
 }
