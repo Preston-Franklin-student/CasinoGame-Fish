@@ -11,7 +11,7 @@ class Program
         { "bar", new Bar() }
     };
 
-    static bool loseSwitch = false;
+
     static void Main(string[] args)
     {
         string choice = "";
@@ -34,10 +34,10 @@ class Program
             else
                 gamesInRow -= gamesInRow - 1;
             if (gamesInRow > 5 || gameState.drunkLevel > 4)
-                loseSwitch = true;
+                gameState.loseSwitch = true;
             else
-                loseSwitch = false;
-            if (loseSwitch)
+                gameState.loseSwitch = false;
+            if (gameState.loseSwitch)
                 Console.WriteLine("Lose Switch is Activated!");
             Thread.Sleep(400);
             if (gameState.drunkLevel > 1)
