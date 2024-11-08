@@ -24,15 +24,15 @@ public class Roulette : Game
             while (!(Console.ReadKey().Key == ConsoleKey.F)) { }
             for (possibleValue = 1; possibleValue < rouletteSpinner; possibleValue++)
             {
-                if (possibleValue3 == 35)
+                if (possibleValue3 == 36)
                 {
                     possibleValue3 = 1;
                 }
-                if (bottomValue2 == 35)
+                if (bottomValue2 == 36)
                 {
                     bottomValue2 = 1;
                 }
-                if (topValue2 == 35)
+                if (topValue2 == 36)
                 {
                     topValue2 = 1;
                 }
@@ -42,57 +42,149 @@ public class Roulette : Game
                 delay = determineDelay(delay, rouletteSpinner, possibleValue);
                 Thread.Sleep(delay);
                 Console.Clear();
-                Console.WriteLine("# # # # #");
-                Console.Write("#  ");
-                if (possibleValue > 2)
-                {
-                    if (topValue / 100 > 0)
-                        Console.WriteLine(topValue + "  #");
-                    else if (topValue / 10 > 0)
-                        Console.WriteLine(topValue + "   #");
-                    else
-                        Console.WriteLine(" " + topValue + "   #");
-                }
-                else
-                {
-                    Console.WriteLine(" 0   #");
-                }
-                Console.Write("#-<");
-                if (possibleValue != 1)
-                {
-                    if (possibleValue2 / 100 > 0)
-                        Console.WriteLine(possibleValue2 + ">-#");
-                    else if (possibleValue2 / 10 > 0)
-                        Console.WriteLine(possibleValue2 + " >-#");
-                    else
-                        Console.WriteLine(" " + possibleValue2 + " >-#");
-                }
-                else
-                {
-                    Console.WriteLine(" 0 >-#");
-                }
-                Console.Write("#  ");
-                if (bottomValue / 100 > 0)
-                    Console.WriteLine(bottomValue + "  #");
-                else if (bottomValue / 10 > 0)
-                    Console.WriteLine(bottomValue + "   #");
-                else
-                    Console.WriteLine(" " + bottomValue + "   #");
-                Console.WriteLine("# # # # #");
-                if (possibleValue > 2)
-                {
-                    topValue2++;
-                }
-                if (possibleValue != 1)
-                {
-                    possibleValue3++;
-                }
-                bottomValue2++;
+                switch(topBorder){
+                case 1:
+                topBorderOutput = "1 3 2 1 3 2 1";
+                break;
+                case 2:
+                topBorderOutput = "3 2 1 3 2 1 3";
+                break;
+                case 3:
+                topBorderOutput = "2 1 3 2 1 3 2";
+                break;
             }
+            Console.WriteLine(topBorderOutput);
+            switch(middleBorder){
+                case 1:
+                Console.WriteLine("2 # # # # # 3");
+            Console.Write("3 #  ");
+            if(possibleValue > 2){
+                if(topValue/100 >  0)
+            Console.WriteLine(topValue + "  # 2");
+            else if(topValue/10 > 0)
+            Console.WriteLine(topValue + "   # 2");
+            else
+            Console.WriteLine(" " + topValue + "   # 2");
+            }else{
+                Console.WriteLine(" 0   # 2");
+            }
+            Console.Write("1 #-<");
+            if(possibleValue != 1){
+                if(possibleValue2/100 >  0)
+            Console.WriteLine(possibleValue2 + ">-# 1");
+            else if(possibleValue2/10 > 0)
+            Console.WriteLine(possibleValue2 + " >-# 1");
+            else
+            Console.WriteLine(" " + possibleValue2 + " >-# 1");
+            }else{
+                Console.WriteLine(" 0 >-# 3");
+            }
+            Console.Write("2 #  ");
+            if(bottomValue/100 >  0)
+            Console.WriteLine(bottomValue + "  # 3");
+            else if(bottomValue/10 > 0)
+            Console.WriteLine(bottomValue + "   # 3");
+            else
+            Console.WriteLine(" " + bottomValue + "   # 3");
+            Console.WriteLine("3 # # # # # 2");
+            break;
+            case 2:
+            Console.WriteLine("1 # # # # # 2");
+            Console.Write("2 #  ");
+            if(possibleValue > 2){
+                if(topValue/100 >  0)
+            Console.WriteLine(topValue + "  # 1");
+            else if(topValue/10 > 0)
+            Console.WriteLine(topValue + "   # 1");
+            else
+            Console.WriteLine(" " + topValue + "   # 1");
+            }else{
+                Console.WriteLine(" 0   # 1");
+            }
+            Console.Write("3 #-<");
+            if(possibleValue != 1){
+                if(possibleValue2/100 >  0)
+            Console.WriteLine(possibleValue2 + ">-# 3");
+            else if(possibleValue2/10 > 0)
+            Console.WriteLine(possibleValue2 + " >-# 3");
+            else
+            Console.WriteLine(" " + possibleValue2 + " >-# 3");
+            }else{
+                Console.WriteLine(" 0 >-#");
+            }
+            Console.Write("1 #  ");
+            if(bottomValue/100 >  0)
+            Console.WriteLine(bottomValue + "  # 2");
+            else if(bottomValue/10 > 0)
+            Console.WriteLine(bottomValue + "   # 2");
+            else
+            Console.WriteLine(" " + bottomValue + "   # 2");
+            Console.WriteLine("2 # # # # # 1");
+            break;
+            case 3:
+            Console.WriteLine("3 # # # # # 1");
+            Console.Write("1 #  ");
+            if(possibleValue > 2){
+                if(topValue/100 >  0)
+            Console.WriteLine(topValue + "  # 3");
+            else if(topValue/10 > 0)
+            Console.WriteLine(topValue + "   # 3");
+            else
+            Console.WriteLine(" " + topValue + "   # 3");
+            }else{
+                Console.WriteLine(" 0   # 3");
+            }
+            Console.Write("2 #-<");
+            if(possibleValue != 1){
+                if(possibleValue2/100 >  0)
+            Console.WriteLine(possibleValue2 + ">-# 2");
+            else if(possibleValue2/10 > 0)
+            Console.WriteLine(possibleValue2 + " >-# 2");
+            else
+            Console.WriteLine(" " + possibleValue2 + " >-# 2");
+            }else{
+                Console.WriteLine(" 0 >-# 2");
+            }
+            Console.Write("3 #  ");
+            if(bottomValue/100 >  0)
+            Console.WriteLine(bottomValue + "  # 1");
+            else if(bottomValue/10 > 0)
+            Console.WriteLine(bottomValue + "   # 1");
+            else
+            Console.WriteLine("  " + bottomValue + "  # 1");
+            Console.WriteLine("1 # # # # # 3");
+            break;
+            }
+            switch(bottomBorder){
+                case 1:
+                bottomBorderOutput = "1 2 3 1 2 3 1";
+                break;
+                case 2:
+                bottomBorderOutput = "3 1 2 3 1 2 3";
+                break;
+                case 3:
+                bottomBorderOutput = "2 3 1 2 3 1 2";
+                break;
+            }
+            Console.WriteLine(bottomBorderOutput);
+            if(possibleValue > 2){
+                topValue2++;
+            }
+            if(possibleValue != 1){
+                possibleValue3++;
+            }
+            bottomValue2++;
+            topBorder++;
+            bottomBorder++;
+            middleBorder++;
             if (gameState.drunkLevel < 3)
             {
                 gameState.money += possibleValue2;
-                Console.WriteLine("Congragulations, you won $" + gameState.money + ".");
+                if(possibleValue2 == 999){
+                    Console.WriteLine("!!!CONGRAGULATIONS, YOU HIT JACKPOT!!!")
+                }else{
+                    Console.WriteLine("Congragulations, you won $" + gameState.money + ".");
+                }
             }
             else
                 gameState.money += random.Next(1, possibleValue2);
