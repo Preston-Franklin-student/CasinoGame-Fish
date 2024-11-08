@@ -101,9 +101,9 @@ public static class Rob
 
         Thread.Sleep(1000);
         Console.WriteLine("");
-        Typing("You come upon the first vault without being caught");
+        Helpers.Typing("You come upon the first vault without being caught");
         Thread.Sleep(1000);
-        Typing("Next to the input you see a sticky note.");
+        Helpers.Typing("Next to the input you see a sticky note.");
         Thread.Sleep(1500);
 
         Console.WriteLine(@"                ___________________________               ");
@@ -130,7 +130,7 @@ public static class Rob
 
         Console.WriteLine("");
         Thread.Sleep(3000);
-        Typing("Whats the answer");
+        Helpers.Typing("Whats the answer");
         
         if (int.Parse(Console.ReadLine()) == MathAnswer)
         {
@@ -155,12 +155,4 @@ public static class Rob
     }
 
     #endregion
-
-    static void Typing(string words){
-        foreach(char letter in words){
-            Thread.Sleep(25);
-            Console.Write(letter);
-        }
-        Console.WriteLine();
-    }
 }
