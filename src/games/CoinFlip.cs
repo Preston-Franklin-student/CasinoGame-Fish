@@ -14,9 +14,7 @@ public class CoinFlip : Game
         Console.WriteLine($"{name} challenges you to a coin flip!\nThey bet you ${amount}!");
         while (true)
         {
-            Console.Write("Do you accept? (yes or no): ");
-            string purple = Console.ReadLine();
-            if (purple.ToLower() == "yes")
+            if (Helpers.AskYesNo("Do you accept? (yes or no): "))
             {
                 Console.Write("Heads or Tails? (h or t): ");
                 char picked = char.Parse(Console.ReadLine());
@@ -70,17 +68,12 @@ public class CoinFlip : Game
                 Thread.Sleep(5000);
                 break;
             }
-            else if (purple.ToLower() == "no")
+            else
             {
                 Console.WriteLine($"{name} doesn't like that! You robs you of ${amount * multiply}!");
                 gameState.money -= amount * multiply;
                 Thread.Sleep(5000);
                 break;
-            }
-            else
-            {
-                Console.WriteLine("Hey that's not an option!");
-                continue;
             }
         }
     }

@@ -1,3 +1,5 @@
+using System.Security.Cryptography.X509Certificates;
+
 public class Helpers {
     public static void Typing(string words, int delay = 25, bool skippable = true)
     {
@@ -24,5 +26,23 @@ public class Helpers {
 
     public static bool HasPressed(ConsoleKey key, bool intercept = true) {
         return Console.KeyAvailable && Console.ReadKey(intercept: intercept).Key == key;
+    }
+
+    public static bool AskYesNo(string prompt) {
+        Console.Write(prompt);
+        string? result = Console.ReadLine();
+        // Console.WriteLine();
+
+        if (result == null)
+            return AskYesNo(prompt);
+        
+        result = result.ToLower();
+
+        if (result == "y" || result == "yes")
+            return true;
+        else if (result == "n" || result == "no")
+            return false;
+        else
+            return AskYesNo(prompt);
     }
 }
