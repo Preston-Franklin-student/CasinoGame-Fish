@@ -2,7 +2,7 @@ public class CoinFlip : Game
 {
     public override string Name => "Coin Flip";
 
-    public override void PlayGame(GameState gameState)
+    public override void PlayGame()
     {
         Console.Clear();
         Random jimmy = new Random();

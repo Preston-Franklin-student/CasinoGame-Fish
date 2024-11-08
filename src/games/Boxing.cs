@@ -2,7 +2,7 @@ public class Boxing : Game
 {
     public override string Name => "Boxing";
 
-    public override void PlayGame(GameState gameState) {
+    public override void PlayGame() {
         Console.Clear();
         Random random = new Random();
         List<int> critNums = new List<int> { 0, 0, 0, 1, 1, 1, 1, 1, 1, 2 };

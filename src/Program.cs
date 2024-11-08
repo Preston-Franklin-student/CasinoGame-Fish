@@ -4,7 +4,15 @@ using System.ComponentModel;
 
 class Program
 {
-    static GameState gameState = new GameState();
+    public static GameState gameState = new GameState();
+    private static Dictionary<string, Game> games = new() {
+        { "boxing", new Boxing() },
+        { "coin flipping", new CoinFlip() },
+        { "horses", new HorseRace() },
+        { "roulette", new Roulette() },
+        { "slots", new Slots() },
+        { "bar", new Bar() }
+    };
 
     static bool loseSwitch = false;
     static void Main(string[] args)
@@ -43,13 +51,13 @@ class Program
             switch (choice.ToLower())
             {
                 case "boxing":
-                    new Boxing().PlayGame(gameState);
+                    new Boxing().PlayGame();
                     break;
                 case "slots":
-                    new Slots().PlayGame(gameState);
+                    new Slots().PlayGame();
                     break;
                 case "rob":
-                    result = Rob.Play((gameState.drunkLevel >= 2));
+                    result = Rob.Play(gameState.drunkLevel >= 2);
                     if (result == 0)
                     {
                         Console.WriteLine("You Lost");
@@ -93,19 +101,19 @@ class Program
                     }
                     break;
                 case "coin":
-                    new CoinFlip().PlayGame(gameState);
+                    new CoinFlip().PlayGame();
                     break;
                 case "credits":
                     Credits();
                     break;
                 case "bar":
-                    new Bar().PlayGame(gameState);
+                    new Bar().PlayGame();
                     break;
                 case "horses":
-                    new HorseRace().PlayGame(gameState);
+                    new HorseRace().PlayGame();
                     break;
                 case "spin":
-                    new Roulette().PlayGame(gameState);
+                    new Roulette().PlayGame();
                     break;
                 default:
                     break;
@@ -114,22 +122,22 @@ class Program
             int coinflip = randy.Next(1, 21);
             if (coinflip == 20)
             {
-                new CoinFlip().PlayGame(gameState);
+                new CoinFlip().PlayGame();
             }
         }
-        Credits();
-        Console.WriteLine($"You ended with ${gameState.money}!");
-        Thread.Sleep(7000);
-        string words = "And Ur Mom!";
-        Helpers.Typing(gameState, words);
+        // Credits();
+        // Console.WriteLine($"You ended with ${gameState.money}!");
+        // Thread.Sleep(7000);
+        // string words = "And Ur Mom!";
+        // Helpers.Typing(gameState, words);
     }
 
     static void Credits()
     {
         foreach (string key in Constants.Credits.Keys) {
-            Helpers.Typing(gameState, key, 50);
+            Helpers.Typing(key, 50);
             foreach (string value in Constants.Credits[key]) {
-                Helpers.Typing(gameState, $" - {value}", 50);
+                Helpers.Typing($" - {value}", 50);
                 Thread.Sleep(100);
             }
             Thread.Sleep(250);

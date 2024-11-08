@@ -2,7 +2,7 @@ public class Roulette : Game
 {
     public override string Name => "Roulette";
 
-    public override void PlayGame(GameState gameState)
+    public override void PlayGame()
     {
 
         Console.Clear();

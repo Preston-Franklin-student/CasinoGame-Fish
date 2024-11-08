@@ -2,7 +2,7 @@ public class Slots : Game
 {
     public override string Name => "Slots";
 
-    public override void PlayGame(GameState gameState)
+    public override void PlayGame()
     {
         int biggest = 5;
         if (gameState.loseSwitch)

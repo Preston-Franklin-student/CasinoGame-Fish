@@ -2,7 +2,7 @@ public class Bar : Game
 {
     public override string Name => throw new NotImplementedException();
 
-    public override void PlayGame(GameState gameState)
+    public override void PlayGame()
     {
         string UserAnswer;
         Console.Clear();

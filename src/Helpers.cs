@@ -1,7 +1,7 @@
 public class Helpers {
-    public static void Typing(GameState gameState, string words, int delay)
+    public static void Typing(string words, int delay)
     {
-        if (gameState.drunkLevel > 2 || gameState.loseSwitch)
+        if (Program.gameState.drunkLevel > 2 || Program.gameState.loseSwitch)
             words = "?????";
         foreach (char letter in words)
         {
@@ -12,7 +12,7 @@ public class Helpers {
     }
 
     public static void Typing(GameState gameState, string words) {
-        Typing(gameState, words, 100);
+        Typing(words, 100);
     }
 
     public static void DisplayPlayerStats(GameState gameState, string player, int damage, int defense, int health, int speed)
