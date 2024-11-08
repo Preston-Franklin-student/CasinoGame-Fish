@@ -19,6 +19,11 @@ public class Roulette : Game
             int topValue = 0;
             int topValue2 = 1;
             int delay = 100;
+            int topBorder = 1;
+            string topBorderOutput = "";
+            int bottomBorder = 1;
+            string bottomBorderOutput = "";
+            int middleBorder = 1;
             Console.WriteLine("Press f to Spin in Roulette");
             gameState.money -= 30;
             while (!(Console.ReadKey().Key == ConsoleKey.F)) { }
@@ -36,6 +41,15 @@ public class Roulette : Game
                 {
                     topValue2 = 1;
                 }
+                if(topBorder == 4){
+                topBorder = 1;
+            }
+            if(bottomBorder == 4){
+                bottomBorder = 1;
+            }
+            if(middleBorder == 4){
+                middleBorder = 1;
+            }
                 if (possibleValue > 2) topValue = topValues(topValue, topValue2);
                 if (possibleValue != 1) { possibleValue2 = possibleValues(possibleValue2, possibleValue3); }
                 bottomValue = bottomValues(bottomValue, bottomValue2);
@@ -177,21 +191,23 @@ public class Roulette : Game
             topBorder++;
             bottomBorder++;
             middleBorder++;
+            }
             if (gameState.drunkLevel < 3)
             {
                 gameState.money += possibleValue2;
                 if(possibleValue2 == 999){
-                    Console.WriteLine("!!!CONGRAGULATIONS, YOU HIT JACKPOT!!!")
+                    Console.WriteLine("!!!CONGRAGULATIONS, YOU HIT JACKPOT!!!");
                 }else{
                     Console.WriteLine("Congragulations, you won $" + gameState.money + ".");
                 }
             }
-            else
+            else{
                 gameState.money += random.Next(1, possibleValue2);
-            Console.WriteLine("Congragulations, you won $???.");
-        }
-        else
-            Console.WriteLine("Alright, Leave then");
+                Console.WriteLine("Congragulations, you won $???.");
+            }
+        
+        }else
+             Console.WriteLine("Alright, Leave then");
         Console.WriteLine("Press enter to leave");
         Console.ReadLine();
     }
