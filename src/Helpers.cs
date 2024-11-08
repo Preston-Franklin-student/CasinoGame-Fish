@@ -7,7 +7,7 @@ public class Helpers {
             words = "?????";
         foreach (char letter in words)
         {
-            if (HasPressed(ConsoleKey.Enter))
+            if (HasPressed(ConsoleKey.Enter) && skippable)
                 delay=0;
 
             Thread.Sleep(delay);
