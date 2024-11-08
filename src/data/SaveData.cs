@@ -1,3 +1,7 @@
+// Documented by ChatGPT :)
+
+
+
 /// <summary>
 /// A class that handles saving and loading key-value pairs to and from a file.
 /// It supports storing and retrieving data with the specified keys as strings and values as various types.
@@ -98,6 +102,27 @@ public class SaveData {
             return default!;
         }
     }
+
+    /// <summary>
+    /// Retrieves the value associated with the specified key. If the key does not exist, the provided default value is set
+    /// and then returned.
+    ///
+    /// This method ensures that the key exists in the data store by setting the key to the provided default value if it
+    /// doesn't already exist. Afterward, it returns the value associated with the key, either the previously set default
+    /// value or an existing value.
+    ///
+    /// <typeparam name="T">The type of the value being retrieved or set.</typeparam>
+    /// <param name="key">The key used to look up or set the value.</param>
+    /// <param name="defaultValue">The value to return and set if the key does not already have an associated value.</param>
+    /// <returns>
+    /// The value associated with the key, or the provided default value if the key does not exist.
+    /// </returns>
+    public T GetOrDefault<T>(string key, T defaultValue) {
+        if (!HasValue(key))
+            SetValue(key, defaultValue);
+        return GetValue<T>(key);
+    }
+
 
     /// <summary>
     /// Sets a new value for the specified key and saves the updated key-value pair to the save file.
