@@ -20,6 +20,7 @@ public class Roulette : Game
             int topValue2 = 1;
             int delay = 100;
             Console.WriteLine("Press f to Spin in Roulette");
+            gameState.money -= 30;
             while (!(Console.ReadKey().Key == ConsoleKey.F)) { }
             for (possibleValue = 1; possibleValue < rouletteSpinner; possibleValue++)
             {
