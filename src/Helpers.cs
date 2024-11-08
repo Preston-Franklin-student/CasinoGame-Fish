@@ -1,5 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
-
 public class Helpers {
     public static void Typing(string words, int delay = 25, bool skippable = true)
     {
