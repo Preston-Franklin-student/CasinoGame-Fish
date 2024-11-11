@@ -6,7 +6,7 @@ public class Roulette : Game
     {
 
         Console.Clear();
-        bool yesNo = Helpers.AskYesNo("Do you want to spend $30");
+        bool yesNo = Helpers.AskYesNo("$30 to play! (y/n) ");
         if (!(gameState.money < 30 || !yesNo))
         {
             Random random = new Random();
@@ -198,7 +198,7 @@ public class Roulette : Game
                 if(possibleValue2 == 999){
                     Console.WriteLine("!!!CONGRAGULATIONS, YOU HIT JACKPOT!!!");
                 }else{
-                    Console.WriteLine("Congragulations, you won $" + gameState.money + ".");
+                    Console.WriteLine("Congragulations, you won $" + possibleValue2 + "!");
                 }
             }
             else{
@@ -208,7 +208,7 @@ public class Roulette : Game
         
         }else
              Console.WriteLine("Alright, Leave then");
-        Console.WriteLine("Press enter to leave");
+        Console.Write("Press enter to continue.");
         Console.ReadLine();
     }
 
