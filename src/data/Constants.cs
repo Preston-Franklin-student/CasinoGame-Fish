@@ -5,6 +5,7 @@ public class Constants {
         { "Main Developer:", ["Fish"] },
         { "Concept Creators:", ["Jacob Woudwyk", "Mr. Luyk", "Yosgart Garcia"] },
         { "Play Testers:", ["Mr. Luyk", "Coby Johnson", "Justin Boeve", "Evan Palma"] },
+        { "Saving Mechanism & File Cleaning:", ["Dylan Bruner"]},
         { "Language Conversion: ", ["Chat GPT"] },
         { "Teachers:", ["Mr. Luyk", "Mr. Martinez"] },
         { "Troubleshooting:", ["Yosgart Garcia", "William Newson", "Dylan Bruner"] },
