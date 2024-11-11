@@ -14,6 +14,7 @@ public class Constants {
         { "Home Screen:", ["Fish", "Jacob Woudwyk", "Yosgart Garcia"] },
         { "Boxing:", ["Fish", "Jacob Woudwyk"] },
         { "Horse Racing:", ["Jacob Woudwyk"] },
+        { "Roulette:", ["Preston Franklin", "Fish"]},
         { "Blackjack:", ["William Newson"] },
         { "Slots:", ["Fish", "Jacob Woudwyk"] },
         { "Poker:", ["Coby Johnson"] },
