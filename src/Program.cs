@@ -7,6 +7,7 @@
         { "horses", new HorseRace() },
         { "roulette", new Roulette() },
         { "slots", new Slots() },
+        { "close the box", new CloseTheBox()},
         { "bar", new Bar() },
         { "rob", new RobGame() },
         { "credits", new Credits() },
