@@ -45,6 +45,7 @@ public static class Rob
                 }
                 else    // you got caught trying to rob
                 {
+                    Console.WriteLine("You got Caught Trying to rob!");
                     return 0;
                 }
             }
@@ -148,11 +149,28 @@ public static class Rob
         Random random = new Random();
         num1 = random.Next(10, 100);
         num2 = random.Next(10, 100);
-        MathAnswer = num1 + num2;
-
-        return ($"{num1} + {num2}");
+        string op;
+        int opselectr;
+        opselectr = random.Next(1, 3);
+        switch(opselectr) 
+        {
+        case 1:
+            op = "*";
+            MathAnswer = num1 * num2;
+            return ($"{num1} * {num2}");
+            break;
+        case 2:
+            op = "-";
+            MathAnswer = num1 - num2;
+            return ($"{num1} - {num2}");
+            break;
+        default:
+            op = "+";
+            MathAnswer = num1 + num2;
+            return ($"{num1} + {num2}");
+            break;
+        }
 
     }
-
     #endregion
 }

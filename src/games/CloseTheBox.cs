@@ -22,7 +22,7 @@ public class CloseTheBox : Game
             int isOnTwo = 0;
             int choice = 177;
             int leftOpen = 0;
-            Console.WriteLine($"The rules, there will be 12 boxes.\nYou roll two die and can flip a box with each one of your dice or both of your die combined.\nYour goal is to flip all of the boxes over without not having a choice\nIf you finish with less than 4 you get a prize\n3 left: $25\n2 left: $100\n1 left: $250\nAll Gone: $1000\nDice = [{randy.Next(1, 6)}]\nGoodLuck and press enter to continue");
+            Console.WriteLine($"The rules, there will be 12 boxes.\nYou roll two die and can flip a box with each one of your dice or both of your die combined.\nYour goal is to flip all of the boxes over without not having a choice\nIf you finish with less than 4 you get a prize\n3 left: $25\n2 left: $100\n1 left: $250\nAll Gone: $1000\nDice = [{randy.Next(1, 6)}]\nGood luck and press enter to continue.");
             Console.ReadLine();
             while (true)
             {

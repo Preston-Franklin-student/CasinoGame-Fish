@@ -57,7 +57,7 @@
                 choice = Helpers.WeightedChoice(games.Keys.ToArray(), drunkWeights)?.ToLower();
             }
 
-            var res = games.GetValueOrDefault(choice ?? "", null);
+            var res = games.GetValueOrDefault(choice.ToLower() ?? "", null);
 
             if (choice == "quit")
             {
