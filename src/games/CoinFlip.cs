@@ -52,9 +52,10 @@ public class CoinFlip : Game
             Thread.Sleep(1000);
         }*/
         Flip();
-
+        int tailsChance = 2;
+        if (Program.printablePlayerName == "Fish") tailsChance = 3;
         Console.WriteLine();
-        char result = rnd.Next(0, 2) == 1 ? 'h' : 't';
+        char result = rnd.Next(0, tailsChance) == 1 ? 'h' : 't';
         string sResult = result == 'h' ? "heads" : "tails";
 
         if (result == 'h')
