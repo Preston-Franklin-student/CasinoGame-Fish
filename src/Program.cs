@@ -1,5 +1,6 @@
 ﻿class Program
 {
+    public static string? printablePlayerName;
     public readonly static GameState gameState = new GameState();
     private readonly static Dictionary<string, Game?> games = new() {
         { "boxing", new Boxing() },
@@ -24,7 +25,17 @@
 
     static void Main(string[] args)
     {
-        string? choice = "";
+        Console.Clear();
+        string? playerName = null;
+        bool isIn = false;
+        while (playerName == null){
+            Console.Write("Enter your name: ");
+            playerName = Console.ReadLine();
+        }
+        foreach (string i in Constants.nameList){
+            if (i.ToLower() == playerName.ToLower()) isIn = true;
+        }
+        string? choice = null;
         string? choiceBefore;
         int gamesInRow = 1;
 
@@ -32,9 +43,11 @@
         {
             if (rnd.Next(1, 4) == 1 && gameState.drunkLevel > 0)
                 gameState.drunkLevel--;
-
+            printablePlayerName = playerName[0].ToString().ToUpper() + playerName.Remove(0,1);
             Console.Clear();
-            Console.WriteLine($"Welcome to The Casino!\nYou can bet on {string.Join(", ", games.Keys)}.");
+            if (isIn)Console.WriteLine($"Welcome back to The Casino, {printablePlayerName}!");
+            else Console.WriteLine($"Welcome to The Casino, {printablePlayerName}!");
+            Console.WriteLine($"You can bet on {string.Join(", ", games.Keys)}.");
             Console.WriteLine($"You have ${gameState.money}");
             Console.Write($"What do you want to play ({string.Join(", ", games.Keys)})? ");
             choiceBefore = choice;
@@ -57,7 +70,7 @@
                 choice = Helpers.WeightedChoice(games.Keys.ToArray(), drunkWeights)?.ToLower();
             }
 
-            var res = games.GetValueOrDefault(choice.ToLower() ?? "", null);
+            var res = games.GetValueOrDefault(choice?.ToLower() ?? "", null);
 
             if (choice == "quit")
             {
