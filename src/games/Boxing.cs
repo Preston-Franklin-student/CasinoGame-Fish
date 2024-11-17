@@ -60,7 +60,7 @@ public class Boxing : Game
             {
                 Console.Write(" ");
                 if (i == (14 - p1.name.Length - 1) / 2)
-                    Console.Write(p1);
+                    Console.Write(p1.name);
             }
             Console.WriteLine("|");
             Console.WriteLine("|              |");
@@ -70,7 +70,7 @@ public class Boxing : Game
             {
                 Console.Write(" ");
                 if (i == (14 - p2.name.Length - 1) / 2)
-                    Console.Write(p2);
+                    Console.Write(p2.name);
             }
             Console.WriteLine("|");
             Console.WriteLine("|--------------|");
@@ -83,14 +83,14 @@ public class Boxing : Game
                 // p1 attacks first
                 int crit = critNums[random.Next(critNums.Count)];
                 int damageDealt = crit * (p1.damage - p2.defense);
-                Console.WriteLine($"{p1} does {damageDealt} damage to {p2}!");
+                Console.WriteLine($"{p1.name} does {damageDealt} damage to {p2.name}!");
                 p2.health -= damageDealt;
 
                 if (p2.health > 0)
                 {
                     crit = critNums[random.Next(critNums.Count)];
                     damageDealt = crit * (p2.damage - p1.defense);
-                    Console.WriteLine($"{p2} does {damageDealt} damage to {p1}!");
+                    Console.WriteLine($"{p2.name} does {damageDealt} damage to {p1.name}!");
                     p1.health -= damageDealt;
                 }
             }
@@ -99,14 +99,14 @@ public class Boxing : Game
                 // p2 attacks first
                 int crit = critNums[random.Next(critNums.Count)];
                 int damageDealt = crit * (p2.damage - p1.defense);
-                Console.WriteLine($"{p2} does {damageDealt} damage to {p1}!");
+                Console.WriteLine($"{p2.name} does {damageDealt} damage to {p1.name}!");
                 p1.health -= damageDealt;
 
                 if (p1.health > 0)
                 {
                     crit = critNums[random.Next(critNums.Count)];
                     damageDealt = crit * (p1.damage - p2.defense);
-                    Console.WriteLine($"{p1} does {damageDealt} damage to {p2}!");
+                    Console.WriteLine($"{p1.name} does {damageDealt} damage to {p2.name}!");
                     p2.health -= damageDealt;
                 }
             }
@@ -114,11 +114,11 @@ public class Boxing : Game
             {
                 int crit = critNums[random.Next(critNums.Count)];
                 int damageDealt = crit * (p1.damage - p2.defense);
-                Console.WriteLine($"{p1} does {damageDealt} damage to {p2}!");
+                Console.WriteLine($"{p1.name} does {damageDealt} damage to {p2.name}!");
                 p2.health -= damageDealt;
                 crit = critNums[random.Next(critNums.Count)];
                 damageDealt = crit * (p2.damage - p1.defense);
-                Console.WriteLine($"{p2} does {damageDealt} damage to {p1}!");
+                Console.WriteLine($"{p2.name} does {damageDealt} damage to {p1.name}!");
                 p1.health -= damageDealt;
             }
 

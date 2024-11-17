@@ -44,17 +44,11 @@ public class CoinFlip : Game
                 Thread.Sleep(5000);
             }
         }
-
-        /*Console.WriteLine("Flipping Coin!!");
-        for (int i = 0; i < 3; i++)
-        {
-            Console.Write(".");
-            Thread.Sleep(1000);
-        }*/
         Flip();
-
+        int tailsChance = 2;
+        if (Program.printablePlayerName == "Fish") tailsChance = 3;
         Console.WriteLine();
-        char result = rnd.Next(0, 2) == 1 ? 'h' : 't';
+        char result = rnd.Next(0, tailsChance) == 1 ? 'h' : 't';
         string sResult = result == 'h' ? "heads" : "tails";
 
         if (result == 'h')
@@ -64,16 +58,14 @@ public class CoinFlip : Game
 
         if (result == picked)
         {
-            Console.WriteLine($"You win ${amount}!");
 
-            //Console.WriteLine($"You were right it was {sResult}!\nYou win ${amount}!");
+            Console.WriteLine($"You were right, it was {sResult}!\nYou win ${amount}!");
             gameState.money += amount;
         }
         else
         {
-            Console.WriteLine($"You lose ${amount}!");
 
-            //Console.WriteLine($"You were wrong it was {sResult}!\nYou lose ${amount}!");
+            Console.WriteLine($"You were wrong, it was {sResult}!\nYou lose ${amount}!");
             gameState.money -= amount;
         }
         Helpers.SkippableDelay(5000);
