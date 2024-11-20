@@ -177,7 +177,7 @@ public class HorseRace : Game
         }
         Thread.Sleep(2000);
         Console.Clear();
-        Console.WriteLine($"\n\n   ___🐎____\n  |    #1   |\n  | Horse {whoWins} |");
+        Console.WriteLine($"\n\n   ___{e}____\n  |    #1   |\n  | {animal} {whoWins} |");
         if (bet == whoWins)
         {
             Console.Write("You win $");
