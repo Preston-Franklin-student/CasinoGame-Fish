@@ -4,7 +4,7 @@ public class HorseRace : Game
 
     public override void Play()
     {
-        //🐎◼️🔲🚜🐈‍⬛🐢
+        //🐎◼️🔲🚜🐈‍⬛🐢🐌
         //🏇🐟🎠🐝🦊🦮🐧
         Console.Clear();
         string animal = "Horse ";
@@ -52,8 +52,8 @@ public class HorseRace : Game
             animal = "Tractor";
             break;
             case "Preston":
-            e = "🐦‍⬛";
-            animal = " Crow ";
+            e = "🐌";
+            animal = "Snail ";
             break;
             case "Clyde":
             e = "🐉";
