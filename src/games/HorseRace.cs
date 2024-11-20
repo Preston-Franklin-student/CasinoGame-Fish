@@ -4,10 +4,10 @@ public class HorseRace : Game
 
     public override void Play()
     {
-        //🐎◼️🔲🚜🐌🐈‍⬛
-        //🏇🐟🎠🐝🐅🦮
+        //🐎◼️🔲🚜🐈‍⬛🐢
+        //🏇🐟🎠🐝🦊🦮🐧
         Console.Clear();
-        string animal = "Horse";
+        string animal = "Horse ";
         string e = "🏇";
         Console.WriteLine("Do you want to spend $150 on Horse Racing (Yes/No)");
         string play = Console.ReadLine() ?? "";
@@ -41,23 +41,23 @@ public class HorseRace : Game
         switch(Program.printablePlayerName){
             case "Fish":
             e = "🐟";
-            animal = "Fish";
+            animal = " Fish ";
             break;
             case "Jacob":
-            e = "🐅";
-            animal = "Fox";
+            e = "🦊";
+            animal = " Fox  ";
             break;
             case "Evan":
             e = "🚜";
             animal = "Tractor";
             break;
             case "Preston":
-            e = "🐌";
-            animal = "Snail";
+            e = "🐦‍⬛";
+            animal = " Crow ";
             break;
             case "Clyde":
-            e = "🐝";
-            animal = "Bee";
+            e = "🐉";
+            animal = "Dragon";
             break;
             case "Will":
             e = "🎠";
@@ -65,7 +65,23 @@ public class HorseRace : Game
             break;
             case "Yosgart":
             e = "🐈‍⬛";
-            animal = "Cat";
+            animal = " Cat  ";
+            break;
+            case "Dylan":
+            e = "🐈";
+            animal = " Cat  ";
+            break;
+            case "Mr. luyk":
+            e = "🐇";
+            animal = "Bunny ";
+            break;
+            case "Alec":
+            e = "🐢";
+            animal = "Turtle";
+            break;
+            case "Mr. martinez":
+            e = "🐧";
+            animal = "Penguin";
             break;
             default:
             break;
@@ -177,7 +193,7 @@ public class HorseRace : Game
         }
         Thread.Sleep(2000);
         Console.Clear();
-        Console.WriteLine($"\n\n   ___{e}____\n  |    #1   |\n  | {animal} {whoWins} |");
+        Console.WriteLine($"\n\n   ___{e}____\n  |    #1   |\n  | {animal}{whoWins} |");
         if (bet == whoWins)
         {
             Console.Write("You win $");
