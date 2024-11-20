@@ -93,8 +93,13 @@ public class CloseTheBox : Game
                     for (int i = 0; i < 2; i++)
                         dice[i] = randy.Next(1, 7);
                 Console.WriteLine($"\n           [{dice[0]}]\n                [{dice[1]}]");
-                if (!(openOClosed[dice[0] - 1] || openOClosed[dice[1] - 1] || ((dice[0] + dice[1] <= 12) && (openOClosed[dice[0] + dice[1] - 1]))) || ((openOClosed[dice[0] - 1] || openOClosed[dice[1] - 1]) && (isOnTwo % 2 == 1)))
+                if (!(openOClosed[dice[0]- 1] || openOClosed[dice[1]-1])){
+                if (!(dice[0] + dice[1] <= 12 && openOClosed[dice[0] + dice[1] - 1]))
                     break;
+                else
+                if (isOnTwo % 2 == 1)
+                    break;
+                }
                 Console.WriteLine("Enter your numbers based on the die:");
                 while (true)
                 {
@@ -146,7 +151,7 @@ public class CloseTheBox : Game
         }
         else
             Console.WriteLine("It seems cheap to me, but to each their own");
-        Thread.Sleep(150);
+        Thread.Sleep(300);
         Console.WriteLine("Press enter to continue");
         Console.ReadLine();
     }
