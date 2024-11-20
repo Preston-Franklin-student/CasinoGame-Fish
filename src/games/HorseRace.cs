@@ -64,8 +64,8 @@ public class HorseRace : Game
             animal = "Plastic Horse";
             break;
             case "Yosgart":
-            e = "🐈‍⬛";
-            animal = " Cat  ";
+            e = "🦮";
+            animal = " Dog  ";
             break;
             case "Dylan":
             e = "🐈";
@@ -191,7 +191,6 @@ public class HorseRace : Game
             horse[4] -= move[4] + 1;
             Thread.Sleep(2000);
         }
-        Thread.Sleep(2000);
         Console.Clear();
         Console.WriteLine($"\n\n   ___{e}____\n  |    #1   |\n  | {animal}{whoWins} |");
         if (bet == whoWins)
