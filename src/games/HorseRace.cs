@@ -4,8 +4,11 @@ public class HorseRace : Game
 
     public override void Play()
     {
-        //🐎◼️🔲
+        //🐎◼️🔲🚜🐌🐈‍⬛
+        //🏇🐟🎠🐝🐅🦮
         Console.Clear();
+        string animal = "Horse";
+        string e = "🏇";
         Console.WriteLine("Do you want to spend $150 on Horse Racing (Yes/No)");
         string play = Console.ReadLine() ?? "";
         if(gameState.money > 150 && (play.ToLower().Equals("yes") || play.ToLower().Equals("y"))){
@@ -35,12 +38,45 @@ public class HorseRace : Game
         }
         int bet;
         Console.WriteLine("Welcome to the Horse Race!\nYou are just in time to see them start!\nTake Your bets");
+        switch(Program.printablePlayerName){
+            case "Fish":
+            e = "🐟";
+            animal = "Fish";
+            break;
+            case "Jacob":
+            e = "🐅";
+            animal = "Fox";
+            break;
+            case "Evan":
+            e = "🚜";
+            animal = "Tractor";
+            break;
+            case "Preston":
+            e = "🐌";
+            animal = "Snail";
+            break;
+            case "Clyde":
+            e = "🐝";
+            animal = "Bee";
+            break;
+            case "Will":
+            e = "🎠";
+            animal = "Plastic Horse";
+            break;
+            case "Yosgart":
+            e = "🐈‍⬛";
+            animal = "Cat";
+            break;
+            default:
+            break;
+        }
+
         while (true)
         {
             if(!gameState.loseSwitch)
-            Console.WriteLine($"{hName[0]}'s Horse: Horse 1  Speed: {speed[0]}  Pot if win: ${amount[0]}\n{hName[1]}'s Horse: Horse 2  Speed: {speed[1]}  Pot if win: ${amount[1]}\n{hName[2]}'s Horse: Horse 3  Speed: {speed[2]}  Pot if win: ${amount[2]}\n{hName[3]}'s Horse: Horse 4  Speed: {speed[3]}  Pot if win: ${amount[3]}\n{hName[4]}'s Horse: Horse 5  Speed: {speed[4]}  Pot if win: ${amount[4]}");
+            Console.WriteLine($"{hName[0]}'s {animal}: {animal} 1  Speed: {speed[0]}  Pot if win: ${amount[0]}\n{hName[1]}'s {animal}: {animal} 2  Speed: {speed[1]}  Pot if win: ${amount[1]}\n{hName[2]}'s {animal}: {animal} 3  Speed: {speed[2]}  Pot if win: ${amount[2]}\n{hName[3]}'s {animal}: {animal} 4  Speed: {speed[3]}  Pot if win: ${amount[3]}\n{hName[4]}'s {animal}: {animal} 5  Speed: {speed[4]}  Pot if win: ${amount[4]}");
             else
-            Console.WriteLine($"{hName[0]}'s Horse: Horse 1  Speed: ???  Pot if win: $???\n{hName[1]}'s Horse: Horse 2  Speed: ???  Pot if win: $???\n{hName[2]}'s Horse: Horse 3  Speed: ???  Pot if win: $???\n{hName[3]}'s Horse: Horse 4  Speed: ???  Pot if win: $???\n{hName[4]}'s Horse: Horse 5  Speed: ???  Pot if win: $???");
+            Console.WriteLine($"{hName[0]}'s {animal}: {animal} 1  Speed: ???  Pot if win: $???\n{hName[1]}'s {animal}: {animal} 2  Speed: ???  Pot if win: $???\n{hName[2]}'s {animal}: {animal} 3  Speed: ???  Pot if win: $???\n{hName[3]}'s {animal}: {animal} 4  Speed: ???  Pot if win: $???\n{hName[4]}'s {animal}: {animal} 5  Speed: ???  Pot if win: $???");
             Console.WriteLine("Enter a number:");
             try
             {
@@ -74,11 +110,11 @@ public class HorseRace : Game
             track5[x] = "~~";
         }
         int[] horse = {29,29,29,29,29};
-        track1[horse[0]] = "🐎";
-        track2[horse[1]] = "🐎";
-        track3[horse[2]] = "🐎";
-        track4[horse[3]] = "🐎";
-        track5[horse[4]] = "🐎";
+        track1[horse[0]] = e;
+        track2[horse[1]] = e;
+        track3[horse[2]] = e;
+        track4[horse[3]] = e;
+        track5[horse[4]] = e;
         int[] move = new int[5];
         int whoWins = 1331;
         bool stop = false;
