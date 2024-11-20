@@ -94,7 +94,7 @@ public class CloseTheBox : Game
                         dice[i] = randy.Next(1, 7);
                 Console.WriteLine($"\n           [{dice[0]}]\n                [{dice[1]}]");
                 if (!(openOClosed[dice[0]- 1] || openOClosed[dice[1]-1])){
-                if (!(dice[0] + dice[1] < 12 && openOClosed[dice[0] + dice[1] - 1]))
+                if (!(dice[0] + dice[1] <= 12 && openOClosed[dice[0] + dice[1] - 1]))
                     break;
                 else
                 if (isOnTwo % 2 == 1)
