@@ -1,14 +1,18 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <style>
-            </style>
+            <link rel="stylesheet" href="node_modules/@xterm/xterm/css/xterm.css" />
+            <script src="node_modules/@xterm/xterm/lib/xterm.js"></script>
             <title>The Better Casino</title>
         </head>
         <body>
             <h1>The Better (Fishy) Casino</h1>
-            <p id="demo"></p>
-            <object data="src/Program.cs" height = "100px" width = "100px" type="text/cs">
-            </object>
+            <div id="terminal" height="100px" width="100px"></div>
+            <script>
+                var term = new Terminal();
+                term.open(document.getElementById('terminal'));
+                Program.Program.Main(run);
+                
+            </script>
         </body>
     </html>
