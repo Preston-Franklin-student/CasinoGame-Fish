@@ -14,8 +14,6 @@ public class Boxing : Game
         Console.WriteLine($"{p1.name} and {p2.name} are boxing.");
         Console.WriteLine($"You have ${gameState.money}.");
 
-        DisplayPlayerStats(p1);
-        DisplayPlayerStats(p2);
 
 
         // Betting and game logic
@@ -38,6 +36,8 @@ public class Boxing : Game
             }
             Console.WriteLine("Invalid bet!");
         }
+        DisplayPlayerStats(p1);
+        DisplayPlayerStats(p2);
 
         string? guess;
         while (true)
@@ -53,32 +53,6 @@ public class Boxing : Game
         Console.Clear();
         while (p1.health > 0 && p2.health > 0)
         {
-            /*Console.WriteLine($"    Health: {p1.health}");
-            Console.WriteLine("|--------------|");
-            Console.Write("|");
-            for (int i = 0; i < 14 - p1.name.Length; i++)
-            {
-                Console.Write(" ");
-                if (i == (14 - p1.name.Length - 1) / 2)
-                    Console.Write(p1.name);
-            }
-            Console.WriteLine("|");
-            Console.WriteLine("|              |");
-            Console.WriteLine("|              |");
-            Console.Write("|");
-            for (int i = 0; i < 14 - p2.name.Length; i++)
-            {
-                Console.Write(" ");
-                if (i == (14 - p2.name.Length - 1) / 2)
-                    Console.Write(p2.name);
-            }
-            Console.WriteLine("|");
-            Console.WriteLine("|--------------|");
-            Console.WriteLine($"    Health: {p2.health}");
-            Console.Write("Press enter to continue.");
-            Console.ReadLine();
-            Console.Clear();*/
-
             Console.Clear();
             Console.WriteLine("\n\n''-.            .-''\n  ò:            :ó\n...'            '...\n@O@%.O        O.%@O@\n&@@'*'        '*'@@&\n[][][][][][][][][][]");
             Console.WriteLine($"{p1.name}'s Health: {p1.health}\n{p2.name}'s Health: {p2.health}");
