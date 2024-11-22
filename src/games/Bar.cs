@@ -49,4 +49,6 @@ public class Bar : Game
             Thread.Sleep(4000);
         }
     }
+
+    //Animations and other art - DO NOT TOUCH
 }
