@@ -11,7 +11,6 @@
         { "close the box", new CloseTheBox()},
         { "bar", new Bar() },
         { "rob", new RobGame() },
-        { "credits", new Credits() },
         { "quit", null }
     };
 
@@ -28,7 +27,7 @@
         Console.Clear();
         string? playerName = null;
         bool isIn = false;
-        while (playerName == null){
+        while (playerName == null || playerName == ""){
             Console.Write("Enter your name: ");
             playerName = Console.ReadLine();
         }
