@@ -11,7 +11,7 @@
         { "close the box", new CloseTheBox()},
         { "bar", new Bar() },
         { "rob", new RobGame() },
-        { "quit", null }
+        { "quit", new Credits()}
     };
 
     private readonly static Dictionary<string, int> drunkWeights = new() {
@@ -88,7 +88,7 @@
                 games["coin flipping"]!.Play();
         }
 
-        games["credits"]!.Play();
+        games["quit"]!.Play();
 
         Console.WriteLine($"You ended with ${gameState.money}!");
         Helpers.SkippableDelay(7000);

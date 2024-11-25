@@ -12,7 +12,7 @@ public class Credits : Game
             Helpers.Typing(key, delay);
             foreach (string value in Constants.Credits[key])
             {
-                if (Helpers.HasPressed(ConsoleKey.Enter))
+                if (Helpers.HasPressed(ConsoleKey.Spacebar))
                     delay = 0;
 
                 Helpers.Typing(value, delay);
