@@ -4,8 +4,8 @@ public class HorseRace : Game
 
     public override void Play()
     {
-        //🐎◼️🔲🚜🐈‍⬛🐢
-        //🏇🐟🎠🐝🦊🦮🐧
+        //🐎◼️🔲🚜🐈‍🐢🐌
+        //🏇🐟🎠🐝🦊🦮🐧🐆
         Console.Clear();
         string animal = "Horse ";
         string e = "🏇";
@@ -52,32 +52,32 @@ public class HorseRace : Game
             animal = "Tractor";
             break;
             case "Preston":
-            e = "🐦‍⬛";
-            animal = " Crow ";
+            e = "🐌";
+            animal = "Snail ";
             break;
             case "Clyde":
             e = "🐉";
             animal = "Dragon";
             break;
             case "Will":
-            e = "🎠";
-            animal = "Plastic Horse";
+            e = "🐒	";
+            animal = "Monkey";
             break;
             case "Yosgart":
-            e = "🐈‍⬛";
-            animal = " Cat  ";
+            e = "🐆";
+            animal = "Jaguar";
             break;
             case "Dylan":
             e = "🐈";
             animal = " Cat  ";
             break;
             case "Mr. luyk":
-            e = "🐇";
-            animal = "Bunny ";
-            break;
-            case "Alec":
             e = "🐢";
             animal = "Turtle";
+            break;
+            case "Alec":
+            e = "🦖";
+            animal = "T-Rex ";
             break;
             case "Mr. martinez":
             e = "🐧";
@@ -191,7 +191,6 @@ public class HorseRace : Game
             horse[4] -= move[4] + 1;
             Thread.Sleep(2000);
         }
-        Thread.Sleep(2000);
         Console.Clear();
         Console.WriteLine($"\n\n   ___{e}____\n  |    #1   |\n  | {animal}{whoWins} |");
         if (bet == whoWins)
