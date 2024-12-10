@@ -1,7 +1,7 @@
 public class CloseTheBox : Game
 {
     public override string Name => "close the box";
-
+    #pragma warning disable
     public override void Play()
     {
         Console.Clear();
